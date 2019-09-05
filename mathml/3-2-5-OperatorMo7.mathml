@@ -1,0 +1,160 @@
+<math mathsize="60">
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mtext style="border:1px;" mathsize="50">Operators - Breakline</mtext>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px" baseline="true">
+		<mrow style="border:1px">  <mi>f</mi> <mo>&#x2061;<!--FUNCTION APPLICATION--></mo> <mo>(</mo> <mi>x</mi> <mo>)</mo>  </mrow>
+		<mo style="border:1px" id='eq1-equals'>=</mo>
+		<msup>
+			<mrow baseline="true" style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">1</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>4</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' linebreakstyle='before' indentalign='id' indenttarget='eq1-equals'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>3</mn>
+		</msup>
+		<mo style="border:1px">+</mo>
+		<mi style="border:1px">x</mi>
+		<mo style="border:1px">+</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">1</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>6</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' indentalign='center'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' indentalign='right'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+		<mo style="border:1px">+</mo>
+		<mi style="border:1px">xs</mi>
+		<mo style="border:1px" linebreak='newline'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+	</mrow>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px" baseline="true" dir="rtl">
+		<mrow style="border:1px">  <mi>f</mi> <mo>&#x2061;<!--FUNCTION APPLICATION--></mo> <mo>(</mo> <mi>x</mi> <mo>)</mo>  </mrow>
+		<mo style="border:1px" id='eq1-equals'>=</mo>
+		<msup>
+			<mrow baseline="true" style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">1</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>4</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' linebreakstyle='before' indentalign='id' indenttarget='eq1-equals'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>3</mn>
+		</msup>
+		<mo style="border:1px">+</mo>
+		<mi style="border:1px">x</mi>
+		<mo style="border:1px">+</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">1</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>6</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' indentalign='center'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' indentalign='right'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+		<mo style="border:1px">+</mo>
+		<mi style="border:1px">xs</mi>
+		<mo style="border:1px" linebreak='newline'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+	</mrow>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<msqrt style="border:1px" baseline="true">
+		<mrow style="border:1px">  <mi>f</mi> <mo>&#x2061;<!--FUNCTION APPLICATION--></mo> <mo>(</mo> <mi>x</mi> <mo>)</mo>  </mrow>
+		<mo style="border:1px" id='eq1-equals'>=</mo>
+		<msup>
+			<mrow baseline="true" style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">1</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>4</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' linebreakstyle='before' indentalign='id' indenttarget='eq1-equals'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>3</mn>
+		</msup>
+		<mo style="border:1px">+</mo>
+		<mi style="border:1px">x</mi>
+		<mo style="border:1px">+</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">1</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>6</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' indentalign='center'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' indentalign='right'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+		<mo style="border:1px">+</mo>
+		<mi style="border:1px">xs</mi>
+		<mo style="border:1px" linebreak='newline'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+	</msqrt>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<msqrt style="border:1px" baseline="true" dir="rtl">
+		<mrow style="border:1px">  <mi>f</mi> <mo>&#x2061;<!--FUNCTION APPLICATION--></mo> <mo>(</mo> <mi>x</mi> <mo>)</mo>  </mrow>
+		<mo style="border:1px" id='eq1-equals'>=</mo>
+		<msup>
+			<mrow baseline="true" style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">1</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>4</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' linebreakstyle='before' indentalign='id' indenttarget='eq1-equals'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>3</mn>
+		</msup>
+		<mo style="border:1px">+</mo>
+		<mi style="border:1px">x</mi>
+		<mo style="border:1px">+</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">1</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>6</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' indentalign='center'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+		<mo style="border:1px" linebreak='newline' indentalign='right'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+		<mo style="border:1px">+</mo>
+		<mi style="border:1px">xs</mi>
+		<mo style="border:1px" linebreak='newline'>=</mo>
+		<msup>
+			<mrow style="border:1px"> <mo style="border:1px">(</mo> <mrow> <mi style="border:1px">x</mi> <mo style="border:1px">+</mo> <mn style="border:1px">2</mn> </mrow> <mo>)</mo> </mrow>
+			<mn>5</mn>
+		</msup>
+	</msqrt>
+</math>

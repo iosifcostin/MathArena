@@ -1,0 +1,229 @@
+<math mathsize="50">
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mtext style="border:1px;" mathsize="40">Table Matrix - mtable rowlines, columnlines, frame</mtext>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" >
+	  <mtable style="border:1px">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	  <mo>+</mo>
+	  <mtable style="border:1px" rowlines="solid">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	  <mo>+</mo>
+	  <mtable style="border:1px" rowlines="dashed">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	  <mo>+</mo>
+	  <mtable style="border:1px" rowlines="dotted">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	</mrow>
+	
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" >
+	  <mtable style="border:1px">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	  <mo>+</mo>
+	  <mtable style="border:1px" columnlines="solid">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	  <mo>+</mo>
+	  <mtable style="border:1px" columnlines="dashed">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	  <mo>+</mo>
+	  <mtable style="border:1px" columnlines="dotted">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	</mrow>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" >
+	  <mtable frame="none">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	  <mo>+</mo>
+	  <mtable style="border:1px" frame="solid">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	  <mo>+</mo>
+	  <mtable style="border:1px" frame="dashed">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	  <mo>+</mo>
+	  <mtable style="border:1px" frame="dotted">
+	    <mtr>
+	      <mtd> <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	</mrow>
+</math>

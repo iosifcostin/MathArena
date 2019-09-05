@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+    <title>MathArena</title>
+    <link rel="stylesheet" th:href="@{/userAssets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/userAssets/css/templatemo-style.css}">
+    <link rel="stylesheet" th:href="@{/userAssets/css/fontawesome.min.css}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="http://www.wiris.net/demo/editor/editor"></script>
+</head>
+
+<body>
+<div class="container mt-5">
+    <div th:replace="userFragments/navBar :: navBar"></div>
+    <div class="container mt-5">
+        <br><br><br>
+    </div>
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" th:href="@{|/user/problemDetails/${preview}|}">
+                Inapoi
+            </a></li>
+        <li class="page-item">
+            <a class="page-link" th:href="@{|/user/problemDetails/${next}|}">
+                Inainte
+            </a></li>
+    </ul>
+    <h3 th:if="${problemSolved}" style="color: #e77518">Ati rezolvat aceasta problema</h3>
+    <div class="row tm-content-row" th:if="${mathProblem != null}">
+        <div class=".col-xs-6 col-lg-6 col-xl-6 tm-block-col ">
+            <h1 class="tm-block-title" th:text="${mathProblem.getName()}" style="color:green "></h1>
+            <img th:src="'data:image/png;base64,' + ${mathProblem.getDescriptionDto()}"
+                 alt="img">
+
+        </div>
+        <div class=".col-xs-6 col-lg-6 col-xl-6 tm-block-col ">
+            <div th:if="${problemSolved}">
+                <h class="tm-block-title" style="color:green ">Resultat</h>
+                <img th:src="'data:image/png;base64,' + ${mathProblem.getResultDto()}"
+                     alt="img">
+            </div>
+            <div th:if="${!problemSolved}">
+                <h2 class="tm-block-title" style="color:green ">Raspunde</h2>
+
+                <div class="form-group">
+                    <div class="form-label-group">
+                        <div style="width:600px;height:300px" id="editor"></div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success  mr-10" onclick="checkAnswer()">Raspunde
+                </button>
+                <a th:href="@{/problems(pageSize=${10}, page=${page})}"
+                   class="btn btn-default btn btn-danger">Renunta</a>
+            </div>
+        </div>
+    </div>
+    <div th:if="${mathProblem == null}">
+        <h2 style="color: white">Problema cu id-ul <em th:text="${id}" style="color: orange"></em> nu exista</h2>
+    </div>
+    <!-- Messages Modal-->
+    <div class="modal fade" id="validateMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Mesaj</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="background-color: #567086">
+                    <div style="display: none" class="alert alert-success"
+                         id="valid">
+                        <strong>Felicitari!! ati raspuns corect</strong>
+                    </div>
+                    <div style="display: none" class="alert alert-danger" id="notValid">
+                        <strong>Raspunsul nu este valid</strong>
+                    </div>
+                    <div style="display: none" class="alert alert-danger" id="nullAnswer">
+                        <strong>Tastati un raspuns..</strong>
+                    </div>
+                    <div style="display: none" class="alert alert-danger" id="formatted">
+                        <strong>Scrieti raspunsul fara sa editati fontul</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="userFragments/headAndJsScripts :: scripts"></div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var editor;
+    var id = /*[[${idTo}]]*/ 'default';
+    var page = /*[[${page}]]*/ 'default';
+
+    window.onload = function () {
+        editor = com.wiris.jsEditor.JsEditor.newInstance({'language': 'en'});
+        editor.insertInto(document.getElementById('editor'));
+
+    };
+
+    function checkAnswer() {
+        var answer = editor.getMathML();
+        var isValid;
+
+        if (answer !== "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"/>") {
+            $.getJSON("/checkAnswer?answer=" + answer + "&id=" + id, function (data) {
+                isValid = data;
+
+                if (isValid) {
+                    $('#notValid').hide();
+                    $('#nullAnswer').hide();
+                    $('#valid').show();
+                    $('#validateMessage').modal('show');
+                    setTimeout(function () {
+                        $('#validateMessage').modal('hide');
+                        window.location.href = "/problems?pageSize=10&page=" + page;
+                    }, 3000);
+
+                }
+                if (!isValid) {
+                    $('#valid').hide();
+                    $('#nullAnswer').hide();
+                    $('#notValid').show();
+                    $('#validateMessage').modal('show');
+                    setTimeout(function () {
+                        $('#validateMessage').modal('hide');
+                    }, 3000);
+                }
+            });
+        } else {
+            $('#notValid').hide();
+            $('#valid').hide();
+            $('#nullAnswer').show();
+            $('#validateMessage').modal('show');
+            setTimeout(function () {
+                $('#validateMessage').modal('hide');
+            }, 3000);
+        }
+
+    }
+
+    /*]]>*/
+</script>
+</body>
+</html>

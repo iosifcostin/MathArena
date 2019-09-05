@@ -1,0 +1,390 @@
+<math mathsize="40">
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mtext style="border:1px;" mathsize="50">Operators - arrows 2</mtext>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x2044;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x2190;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x2192;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x2194;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x219E;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21A0;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21A2;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21A3;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21A4;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21A6;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21A9;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21AA;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21AB;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21AC;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21B4;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21B5;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21B9;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21BC;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21BD;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21C0;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21C1;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21C4;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21C6;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21C7;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21C9;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21CB;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21CC;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21D0;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21D2;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21D4;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21DA;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21DB;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21E4;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21E5;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21E6;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21E8;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21F0;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21F6;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21FD;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21FE;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x21FF;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x27F5;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x27F6;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x27F7;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x27F8;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x27F9;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x27FA;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x27FB;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x27FC;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x27FD;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x27FE;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x294E;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x2950;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x2952;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x2953;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x2956;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x2957;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x295A;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x295B;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x295E;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x295F;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x005E;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x030C;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x005F;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x007E;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x203E;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x23B4;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x23B5;</mo>
+	</mover>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x23DC;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x23DD;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x23DE;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x23DF;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x23E0;</mo>
+	</mover>
+
+	<mover style="border:1px;">
+		<mtext>ABCDE</mtext>
+		<mo>&#x23E1;</mo>
+	</mover>
+
+
+</math>

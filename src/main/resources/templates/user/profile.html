@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="userFragments/headAndJsScripts :: head">
+    <title>MathArena</title>
+</head>
+
+<body id="reportsPage">
+<div class="" id="home">
+    <div th:replace="userFragments/navBar :: navBar"></div>
+    <div class="container mt-5">
+        <br><br><br>
+    </div>
+
+    <!-- row -->
+    <div class="container">
+        <div class="row tm-content-row">
+            <div class="tm-block-col tm-col-account-settings">
+                <div class="tm-bg-primary-dark tm-block tm-block-settings row">
+                    <div class="col-8">
+                        <p style="color: white">some info here</p>
+                    </div>
+                    <div class="tm-block-col tm-col-avatar col-4">
+                        <div class="tm-avatar-container">
+                            <img th:src="${picture}"
+                                 alt="Avatar"
+                                 class="tm-avatar img-fluid mb-4"/>
+                            <label class="tm-avatar-delete-link" for="file"><i
+                                    class="far fa-upload tm-product-delete-icon"></i></label>
+                            <form th:action="@{/user/newPicture}" th:object="${picUpload}" enctype="multipart/form-data"
+                                  id="form"
+                                  method="post">
+                                <input onchange="$('#form').submit()" type="file" accept="image/*" class="form-control"
+                                       name="file" id="file" style="display: none">
+
+                            </form>
+                        </div>
+                        <div ><h1 th:text="${user.getFirstName() + ' ' + user.getLastName()}" style="color: white;"></h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row tm-content-row">
+                <div class="col-12 tm-block-col">
+                    <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                        <h2 class="tm-block-title">Probleme rezolvate</h2>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar"
+                                 th:style="'width:' +  ${user.getPercentDto()} + '%'">
+                            </div>
+                            <p th:text="${user.getMathProblems().size() + ' din ' + problemsSize}"
+                               style="color: orangered"></p>
+                        </div>
+                        <ol>
+                            <li th:each="mp : ${userSolvedProblems}" style="color: white" th:text="${'p' + mp.getId() + ' - ' +mp.getName()}"
+                                th:id="${mp.getId()}" onclick="openProblemModal(this.id)">
+                                <div class="modal fade" th:id="'modal' + ${mp.getId()}" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content" style="width: 120%">
+                                            <div class="modal-header">
+                                                <h3  class="modal-title" th:text="${mp.getName()}" style="color: #1629e7"></h3>
+                                                <button class="close" type="button" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img th:src="'data:image/png;base64,' + ${mp.getDescriptionDto()}"
+                                                     alt="img">
+                                            </div>
+                                            <div th:if="${mp.getProblemSolved()}">
+                                                <div class="modal-header">
+                                                    <h3  class="modal-title" style="color: #1629e7">Rezultat</h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img th:src="'data:image/png;base64,' + ${mp.getResultDto()}"
+                                                         alt="img">
+                                                </div>
+                                            </div>
+                                            <div th:if="${!mp.getProblemSolved()}" class="modal-footer">
+                                                <a class="btn btn-info" th:href="@{|/user/problemDetails/${mp.getId()}|}">Raspunde</a>
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                                                    Inchide
+                                                </button>
+                                            </div>
+                                            <div th:if="${mp.getProblemSolved()}" class="modal-footer">
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                                                    Inchide
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Messages Modal-->
+        <div class="modal fade" id="vModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Mesaj</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="background-color: #567086">
+                        <div th:if="${emailMessage  != null}" class="alert alert-success"
+                             id="success-alert">
+                            <strong th:text="${emailMessage}"></strong>
+                        </div>
+                        <div th:if="${welcome  != null}" class="alert alert-success"
+                             id="success-alert">
+                            <strong th:text="${welcome}"></strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="userFragments/headAndJsScripts :: scripts"></div>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var emailMessage = /*[[${emailMessage}]]*/ 'default';
+        var welcome = /*[[${welcome}]]*/ 'default';
+        var userType = /*[[${session.userType}]]*/ 'default';
+
+        window.onload = function (ev) {
+
+            if (userType === 'normalUser')
+
+                if (emailMessage || welcome) {
+                    $('#vModal').modal('show');
+                    setTimeout(function () {
+                        $('#vModal').modal('hide');
+                    }, 3000);
+                }
+        };
+
+        function openProblemModal(id) {
+            $('#modal' + id).modal('show')
+        }
+
+        /*]]>*/
+    </script>
+
+</body>
+<!--<style>-->
+<!--    ol.start {-->
+<!--        counter-reset: mycounter;-->
+<!--    }-->
+<!--    ol.start li, ol.continue li {-->
+<!--        list-style: none;-->
+<!--    }-->
+<!--    ol.start li:before, ol.continue li:before {-->
+<!--        content: counter(mycounter) ". ";-->
+<!--        counter-increment: mycounter;-->
+<!--    }-->
+<!--</style>-->
+</html>

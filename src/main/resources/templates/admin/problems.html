@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="adminFragments/headAndJsScripts :: head">
+
+    <title>Problems</title>
+</head>
+
+<body id="page-top">
+
+<div th:replace="adminFragments/navBar :: navBar"></div>
+
+<div id="wrapper">
+
+    <div th:replace="adminFragments/sideMenu :: sideMenu"></div>
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">Problems</li>
+            </ol>
+            <div th:if="${problemEdited  != null}" class="alert alert-success"
+                 id="success-alert">
+                <strong th:text="${problemEdited}"></strong>
+            </div>
+            <div th:if="${problemRemoved  != null}" class="alert alert-success"
+                 id="success-alert">
+                <strong th:text="${problemRemoved}"></strong>
+            </div>
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Problems
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <!-- Navbar Search -->
+                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Navbar Search end-->
+                        <table class="table table-bordered" id="dataTable">
+                            <thead>
+                            <tr title="Click for description">
+                                <th>Category</th>
+                                <th>Class</th>
+                                <th>Name</th>
+                                <th>Result</th>
+                                <th>Date Posted</th>
+                                <th>Solved by</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Category</th>
+                                <th>Class</th>
+                                <th>Name</th>
+                                <th>Result</th>
+                                <th>Date Posted</th>
+                                <th>Solved by</th>
+                                <th></th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                            <tr th:each="p  : ${problemsPage}" th:id="${p.getId()}"
+                                onclick="$('#modal'+ this.id).modal()"
+                                title="Click to see description">
+                                <td th:if="${p.getCategory() != null}"
+                                    th:text="${p.getCategory().getCategoryName()}"></td>
+                                <td th:if="${p.getProblemClass() != null}"
+                                    th:text="${p.getProblemClass().getProblemClassName()}"></td>
+                                <td th:text="${p.getName()}"></td>
+                                <td><img th:src="'data:image/jpeg;base64,' + ${p.getResultDto()}" alt="img"></td>
+                                <td th:text="${p.getDatePosted()}"></td>
+                                <td th:text="${p.getUsers().size()}"></td>
+                                <td>
+
+                                    <a th:href="@{|/admin/editProblem/${p.getId()}|}"
+                                       style="color: green">
+                                        <span class="fa fa-edit" title="edit"></span></a>
+
+                                    <a th:href="@{|/admin/removeProblem/${p.getId()}|}"
+                                       style="color: red">
+                                        <span class="fa fa-edit" title="remove"></span></a>
+
+                                </td>
+                                <div class="modal fade" th:id="'modal' + ${p.getId()}" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Description</h5>
+                                                <button class="close" type="button" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img th:src="'data:image/png;base64,' + ${p.getDescriptionDto()}"
+                                                     alt="img">
+                                            </div>
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Result</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img th:src="'data:image/png;base64,' + ${p.getResultDto()}" alt="img">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="row">
+                            <div class="form-group col-md-1" th:if="${problemsPage.totalPages != 0}">
+                                <div hidden id="pageSizesToShow"
+                                     th:attr="data-pageSizesToShow = ${pager.pageSizesToShowInJSON}"></div>
+                                <select class="form-control pagination" id="pageSizeSelect">
+                                    <option th:each="pageSize : ${pageSizes}" th:text="${pageSize}"
+                                            th:value="${pageSize}"
+                                            th:selected="${pageSize} == ${selectedPageSize}"></option>
+                                </select>
+                            </div>
+                            <div th:if="${problemsPage.totalPages != 0}"
+                                 class="form-group col-md-11 pagination-centered">
+                                <ul class="pagination">
+                                    <li th:class="${problemsPage.number == 0} ? 'page-item disabled'" class="page-item">
+                                        <a class="page-link"
+                                           th:href="@{/admin/problems(pageSize=${selectedPageSize}, page=1)}">&laquo;</a>
+                                    </li>
+                                    <li th:class="${problemsPage.number == 0} ? 'page-item disabled'" class="page-item">
+                                        <a class="page-link"
+                                           th:href="@{/admin/problems(pageSize=${selectedPageSize}, page=${problemsPage.number})}">&larr;</a>
+                                    </li>
+                                    <li th:class="${problemsPage.number == (page - 1)} ? 'active pointer-disabled' "
+                                        class="page-item"
+                                        th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
+                                        <a class="page-link"
+                                           th:href="@{/admin/problems(pageSize=${selectedPageSize}, page=${page})}"
+                                           th:text="${page}"></a>
+                                    </li>
+                                    <li th:class="${problemsPage.number + 1 == problemsPage.totalPages} ? 'page-item disabled'"
+                                        class="page-item">
+                                        <a class="page-link"
+                                           th:href="@{/admin/problems(pageSize=${selectedPageSize}, page=${problemsPage.number + 2})}">&rarr;</a>
+                                    </li>
+                                    <li th:class="${problemsPage.number + 1 == problemsPage.totalPages} ? 'page-item disabled'"
+                                        class="page-item">
+                                        <a class="page-link"
+                                           th:href="@{/admin/problems(pageSize=${selectedPageSize}, page=${problemsPage.totalPages})}">&raquo;</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+        <div th:replace="adminFragments/footer :: footer"></div>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="adminFragments/headAndJsScripts :: scripts"></div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    checkPageSizes();
+    changePageAndSize();
+
+    const problemEdited = /*[[${problemEdited}]]*/ 'default';
+    const problemRemoved = /*[[${problemRemoved}]]*/ 'default';
+
+
+    if (problemEdited || problemRemoved) {
+        setTimeout(function () {
+            $("#success-alert").fadeOut().empty();
+        }, 5000);
+    }
+
+    //If the page size option is greater than total number of elements (users) - disable it
+    function checkPageSizes() {
+        let pageSizesToShow = $('#pageSizesToShow').data('pagesizestoshow');
+
+        $("#pageSizeSelect option").each(function (i, option) {
+            if ($.inArray(parseInt(option.value), pageSizesToShow) === -1) {
+                option.disabled = true;
+            }
+        });
+    }
+
+    function changePageAndSize() {
+        $('#pageSizeSelect').change(function (evt) {
+
+            window.location.replace("/admin/problems?pageSize=" + this.value + "&page=1");
+
+        });
+    }
+
+
+    /*]]>*/
+</script>
+</body>
+
+</html>

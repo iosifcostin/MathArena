@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="userFragments/headAndJsScripts :: head">
+    <title>MathArena</title>
+</head>
+
+<body id="reportsPage">
+<div th:replace="userFragments/navBar :: navBar"></div>
+<div class="container mt-5">
+    <br><br><br>
+</div>
+<div class="container mt-5">
+    <div class="row tm-content-row">
+        <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block tm-block-products">
+                <!--Search user-->
+                <div class="row col-lg-12 d-flex flex-nowrap pb-2">
+                    <div class="input-group">
+                        <select class="custom-select" id="search-problem-dropdown">
+                            <option value="ID">ID</option>
+                            <option value="Nume">Nume</option>
+                        </select>
+                        <input type="text" id="searchProblemBar"
+                               placeholder="Cauta .." class="form-control"
+                               aria-label="Text input with dropdown button">
+                    </div>
+                    <button type="button" class="btn btn-success ml-2" onclick="searchProblemByProperty()">Cauta
+                    </button>
+                </div>
+
+                <div class="tm-product-table-container">
+
+                    <table id="problemsTable" class="table table-hover tm-table-small tm-product-table">
+                        <thead>
+                        <tr>
+                            <th onclick="sortTable(0)" scope="col">Id</th>
+                            <th onclick="sortTable(1)" scope="col">Clasa</th>
+                            <th onclick="sortTable(2)" scope="col">Categoria</th>
+                            <th onclick="sortTable(3)" scope="col">Nume</th>
+                            <th onclick="sortTable(4)" scope="col">Data postarii</th>
+                            <th onclick="sortTable(5)" scope="col">Rezolvata de</th>
+                            <th sec:authorize="isAuthenticated()"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="tBody">
+                        <tr th:each="mp : ${problemsPage}" th:id="${mp.getId()}">
+                            <td th:text="${mp.getId()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+                            <td th:text="${mp.getProblemClass().getProblemClassName()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+                            <td th:text="${mp.getCategory().getCategoryName()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+                            <td th:text="${mp.getName()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+                            <td th:text="${mp.getDatePosted()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+                            <td th:text="${mp.getUsers().size()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+                            <td sec:authorize="isAuthenticated()" >
+                                <a th:if="${!mp.getProblemSolved()}" th:href="@{|/user/problemDetails/${mp.getId()}|}"
+                                   style="color: #e77518">
+                                    <span class="fas fa-reply" title="raspunde"></span></a>
+
+                                <i th:if="${mp.getProblemSolved()}" class="fas fa-check" style="color: greenyellow"></i>
+
+                            </td>
+                            <div class="modal fade" th:id="'modal' +${mp.getId()} " tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content" style="width: 120%">
+                                        <div class="modal-header">
+                                            <h3 th:text="${mp.getName()}" class="modal-title" style="color: #1629e7"></h3>
+                                            <button class="close" type="button" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img th:src="${'data:image/png;base64,'+ mp.getDescriptionDto()}"
+                                                 alt="img">
+                                        </div>
+                                        <div th:if="${mp.getProblemSolved()}">
+                                            <div class="modal-header">
+                                                <h3  class="modal-title" style="color: #1629e7">Rezultat</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img th:src="${'data:image/png;base64,' + mp.getResultDto()}"
+                                                     alt="img">
+                                            </div>
+                                        </div>
+                                        <div th:if="${!mp.getProblemSolved()}" class="modal-footer" >
+                                            <a class="btn btn-info" th:href="@{|/user/problemDetails/${mp.getId()}|}">Raspunde</a>
+                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                                                Inchide
+                                            </button>
+                                        </div>
+                                        <div th:if="${mp.getProblemSolved()}" class="modal-footer">
+                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                                                Inchide
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--Paging-->
+                <div id="paging-section" class="row" style="margin-top: 10px;">
+
+                    <!--Page size dropdown-->
+                    <div class="form-group col-md-1" th:if="${problemsPage.totalPages != 0}">
+
+                        <!--Get pageSizesToShow-->
+                        <div hidden id="pageSizesToShow"
+                             th:attr="data-pageSizesToShow = ${pager.pageSizesToShowInJSON}"></div>
+
+                        <select class="form-control pagination custom-select" id="pageSizeSelect"
+                                style="width: auto">
+                            <option th:each="pageSize : ${pageSizes}" th:text="${pageSize}" th:value="${pageSize}"
+                                    th:selected="${pageSize} == ${selectedPageSize}"></option>
+                        </select>
+                    </div>
+
+                    <!--Pages-->
+                    <nav aria-label="Page navigation example" class="form-group col-md-11 pagination-centered">
+                        <ul class="pagination" th:if="${problemsPage.totalPages != 0}">
+                            <li th:class="${problemsPage.number == 0} ? 'page-item disabled'" class="page-item">
+                                <a th:if="${not #strings.isEmpty(propertyValue)}"
+                                   class="page-link"
+                                   th:href="@{/problems(problemsProperty=${problemsProperty},
+                                       propertyValue=${propertyValue}, pageSize=${selectedPageSize}, page=1)}">
+                                    &laquo;
+                                </a>
+
+                                <a th:if="${#strings.isEmpty(propertyValue)}"
+                                   class="page-link"
+                                   th:href="@{/problems(pageSize=${selectedPageSize}, page=1)}">
+                                    &laquo;
+                                </a>
+                            </li>
+                            <li th:class="${problemsPage.number == 0} ? 'page-item disabled'" class="page-item">
+                                <a th:if="${not #strings.isEmpty(propertyValue) }"
+                                   class="page-link"
+                                   th:href="@{/problems(problemsProperty=${problemsProperty},
+                                       propertyValue=${propertyValue}, pageSize=${selectedPageSize}, page=${problemsPage.number})}">
+                                    &larr;
+                                </a>
+
+                                <a th:if="${#strings.isEmpty(propertyValue)}"
+                                   class="page-link"
+                                   th:href="@{/problems(pageSize=${selectedPageSize}, page=${problemsPage.number})}">
+                                    &larr;
+                                </a>
+                            </li>
+                            <li th:class="${problemsPage.number == (page - 1)} ? 'active pointer-disabled'"
+                                class="page-item"
+                                th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
+                                <a th:if="${not #strings.isEmpty(propertyValue)}"
+                                   class="page-link"
+                                   th:href="@{/problems(problemsProperty=${problemsProperty},
+                                       propertyValue=${propertyValue}, pageSize=${selectedPageSize}, page=${page})}"
+                                   th:text="${page}">
+                                </a>
+                                <a th:if="${#strings.isEmpty(propertyValue)}"
+                                   class="page-link"
+                                   th:href="@{/problems(pageSize=${selectedPageSize}, page=${page})}"
+                                   th:text="${page}">
+                                </a>
+                            </li>
+                            <li th:class="${problemsPage.number + 1 == problemsPage.totalPages} ? 'page-item disabled'"
+                                class="page-item">
+                                <a th:if="${not #strings.isEmpty(propertyValue)}"
+                                   class="page-link"
+                                   th:href="@{/problems(problemsProperty=${problemsProperty},
+                                       propertyValue=${propertyValue}, pageSize=${selectedPageSize}, page=${problemsPage.number + 2})}">
+                                    &rarr;
+                                </a>
+                                <a th:if="${#strings.isEmpty(propertyValue)}"
+                                   class="page-link"
+                                   th:href="@{/problems(pageSize=${selectedPageSize}, page=${problemsPage.number + 2})}">
+                                    &rarr;
+                                </a>
+                            </li>
+                            <li th:class="${problemsPage.number + 1 == problemsPage.totalPages} ? 'page-item disabled'"
+                                class="page-item">
+                                <a th:if="${not #strings.isEmpty(propertyValue) }"
+                                   class="page-link"
+                                   th:href="@{/problems(problemsProperty=${problemsProperty}, propertyValue=${propertyValue},
+                                       pageSize=${selectedPageSize}, page=${problemsPage.totalPages})}">
+                                    &raquo;
+                                </a>
+                                <a th:if="${#strings.isEmpty(propertyValue)}"
+                                   class="page-link"
+                                   th:href="@{/problems(pageSize=${selectedPageSize}, page=${problemsPage.totalPages})}">
+                                    &raquo;
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- Messages Modal-->
+            <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Mesaj</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="background-color: #567086">
+                            <div th:if="${numberFormatException  != null}" class="alert alert-danger"
+                                 id="success-alert">
+                                <strong th:text="${numberFormatException}"></strong>
+                            </div>
+                            <div th:if="${noMatches  != null}" class="alert alert-success"
+                                 id="success-alert">
+                                <strong th:text="${noMatches}"></strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="tm-footer row tm-mt-small">
+    <div class="col-12 font-weight-light">
+        <p class="text-center text-white mb-0 px-4 small">
+            MathArena
+        </p>
+    </div>
+</footer>
+
+<div th:replace="userFragments/headAndJsScripts :: scripts"></div>
+<script th:src="@{/websiteAssets/ProblemsJson.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var numberFormatException = /*[[${numberFormatException}]]*/ 'default';
+    var noMatches = /*[[${noMatches}]]*/ 'default';
+
+    window.onload = function () {
+
+        if (numberFormatException || noMatches) {
+            $('#messageModal').modal('show');
+            setTimeout(function () {
+                $('#messageModal').modal('hide');
+            }, 3000);
+        }
+    };
+
+    /*]]>*/
+</script>
+</body>
+</html>

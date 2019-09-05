@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="adminFragments/headAndJsScripts :: head">
+
+    <title>Problems</title>
+</head>
+
+<body id="page-top">
+
+<div th:replace="adminFragments/navBar :: navBar"></div>
+
+<div id="wrapper">
+
+    <div th:replace="adminFragments/sideMenu :: sideMenu"></div>
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">Users</li>
+            </ol>
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Users
+                </div>
+                <div class="card-body">
+                    <form class="admin-form" th:action="@{/admin/users/{id}(id=${userUpdateDto.id})}"
+                          th:object="${userUpdateDto}" th:method="post" method="post">
+                        <ul class="global-errors" th:if="${#fields.hasErrors('global')}">
+                            <li class="text-danger" th:each="err : ${#fields.errors('global')}" th:text="${err}">
+                                Input is incorrect
+                            </li>
+                        </ul>
+                        <div class="form-group">
+                            <label for="editedUserRoles">Roles</label>
+                            <div>
+                                <p th:each="role,rowStat : ${allRoles}">
+                                    <input id="editedUserRoles" type="checkbox"
+                                           th:field="*{roles[__${rowStat.index}__].id}" th:value="${role.id}"/>
+                                    <label th:text="${role.name}">Role</label>
+                                </p>
+                            </div>
+                        </div>
+                        <a class="btn btn-dark" th:href="@{/admin/users}">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+        <div th:replace="adminFragments/footer :: footer"></div>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<div th:replace="adminFragments/headAndJsScripts :: scripts"></div>
+
+</body>
+
+</html>

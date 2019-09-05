@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="adminFragments/headAndJsScripts :: head">
+  <title>Register</title>
+</head>
+
+<body class="bg-dark">
+
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Inregistrare</div>
+      <div class="form-group" style="text-align: center" >
+        <a th:href="@{/oauth2/authorization/google}" class="btn-google m-b-20">
+          <img th:src="@{/images/icon-google.png}" alt="GOOGLE">
+          Google
+        </a>
+      </div>
+      <div class="card-body">
+        <form th:action="@{/submit-registration}" th:object="${user} "
+              th:method="post" enctype="multipart/form-data" method="post" action="/register">
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input th:field="*{firstName}" type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
+                  <label for="firstName">Prenume</label>
+                </div>
+                <span class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+              </div>
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input th:field="*{lastName}" type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
+                  <label for="lastName">Nume</label>
+                </div>
+                <span class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input th:field="*{email}" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
+              <label for="inputEmail">Email</label>
+            </div>
+            <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input th:field="*{password}" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                  <label for="inputPassword">Parola</label>
+                </div>
+                <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+              </div>
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input th:field="*{matchingPassword}" type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
+                  <label for="confirmPassword">Confirmati parola</label>
+                </div>
+                <span class="text-danger" th:if="${#fields.hasErrors('matchingPassword')}" th:errors="*{matchingPassword}"></span>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Inregistrare</button>
+        </form>
+        <div class="text-center">
+          <a class="d-block small mt-3" th:href="@{/login}">Pagina de logare</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script th:src="@{/adminAssets/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/adminAssets/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script th:src="@{/adminAssets/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+</body>
+
+</html>

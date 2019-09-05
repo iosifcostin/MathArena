@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="adminFragments/headAndJsScripts :: head">
+    <title>Login</title>
+</head>
+
+<body class="bg-dark">
+
+<div class="container">
+    <div class="card card-login mx-auto mt-5">
+
+        <div class="card-header">Login <br> <p th:if="${loginError}" class="alert alert-danger" role="alert" style="color: red">Email sau parola gresita</p></div>
+       <div class="form-group" style="text-align: center" >
+           <a th:href="@{/oauth2/authorization/google}" class="btn-google m-b-20">
+               <img th:src="@{/images/icon-google.png}" alt="GOOGLE">
+               Google
+           </a>
+       </div>
+        <div class="card-body">
+            <form th:action="@{/perform-login}" method="post">
+                <div class="form-group">
+                    <div class="form-label-group">
+                        <input type="email" id="email" th:name="email" th:id="email" class="form-control"
+                               placeholder="Email" required="required" autofocus="autofocus">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-label-group">
+                        <input type="password" id="password" th:name="password" th:id="password"
+                               class="form-control" placeholder="Parola" required="required">
+                        <label for="password">Parola</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="remember-me">
+                            Aminteste
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <div class="text-center">
+                <a class="d-block small mt-3" th:href="@{/register}">Inregistrati-va</a>
+                <a class="d-block small" th:href="@{/forgot-password}">Ati uitat parola?</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script th:src="@{/adminAssets/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/adminAssets/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+<!-- Core plugin JavaScript-->
+<script th:src="@{/adminAssets/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+</body>
+
+</html>

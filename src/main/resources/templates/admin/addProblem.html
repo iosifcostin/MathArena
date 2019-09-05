@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!--<head th:replace="adminFragments/headAndJsScripts :: head">-->
+<head >
+    <title>Problems</title>
+    <link th:href="@{/adminAssets/css/sb-admin.css}" rel="stylesheet">
+    <script src="http://www.wiris.net/demo/editor/editor"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body id="page-top" class="bg-dark">
+
+<div th:replace="adminFragments/navBar :: navBar"></div>
+
+<div id="wrapper">
+
+    <div th:replace="adminFragments/sideMenu :: sideMenu"></div>
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">Add Problem</li>
+            </ol>
+
+        </div>
+        <!-- /.container-fluid -->
+        <div th:if="${problemSaved  != null}" class="alert alert-success"
+             id="success-alert">
+            <strong th:text="${problemSaved}"></strong>
+        </div>
+        <div class="container">
+            <div class="card card-register mx-auto mt-5">
+                <div class="card-header">Problem Details <a th:href="@{/admin/addCategory}"
+                                                            style="text-decoration: none;color: orangered">Go add a
+                    category</a><a th:href="@{/admin/addClass}"
+                                   style="text-decoration: none;color: #1629e7">Go add a
+                    class</a></div>
+                <div class="card-body">
+
+                    <form th:action="@{/admin/saveProblem}" th:object="${mathProblem} "
+                          th:method="post" method="post" id="form">
+                        <div class="form-group">
+                            <label class="control-label mb-10">Select category</label>
+                            <select id="sel" th:field="*{category}" required
+                                    class="form-control">
+                                <option th:each="c : ${categories}"
+                                        th:text="${c.getCategoryName()}"
+                                        th:value="${c.getId()}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label mb-10">Select Class</label>
+                            <select id="sele" th:field="*{problemClass}" required
+                                    class="form-control">
+                                <option th:each="cl : ${classes}"
+                                        th:text="${cl.getProblemClassName()}"
+                                        th:value="${cl.getId()}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-label-group">
+                                <div style="width:600px;height:300px" id="descriptionEditor"></div>
+                                <input th:field="*{description}" type="hidden" id="description">
+                                <span class="text-danger" th:if="${#fields.hasErrors('description')}"
+                                      th:errors="*{description}"></span>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-label-group">
+                                        <input th:field="*{name}" type="text" id="name" class="form-control"
+                                               placeholder="name"
+                                               required="required" autofocus="autofocus">
+                                        <label for="name">Name</label>
+                                        <span class="text-danger" th:if="${#fields.hasErrors('name')}"
+                                              th:errors="*{name}"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-label-group">
+                                        <input th:field="*{result}" type="text" id="result" class="form-control"
+                                               placeholder="result"
+                                               required="required">
+                                        <label for="result">Result</label>
+                                        <span class="text-danger" th:if="${#fields.hasErrors('result')}"
+                                              th:errors="*{result}"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div th:if="${editForm == null}" class="form-actions mt-10">
+                            <button  type="submit" name="action" value="save"
+                                    class="btn btn-primary" onclick="getMatMl()">Add
+                            </button>
+                        </div>
+                        <div th:if="${editForm}" class="form-actions mt-10">
+                            <button type="submit" name="action" value="edit"
+                                    class="btn btn-success  mr-10" onclick="getMatMl()">Done Editing
+                            </button>
+                            <a th:href="@{/admin/problems}"
+                               class="btn btn-default btn btn-danger">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div th:replace="adminFragments/footer :: footer"></div>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!--<div th:replace="fragments/headAndJsScripts :: scripts"></div>-->
+<script th:src="@{/adminAssets/vendor/jquery/jquery.min.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    let descriptionEditor;
+    const description = /*[[${description}]]*/ 'default';
+    window.onload = function () {
+        descriptionEditor = com.wiris.jsEditor.JsEditor.newInstance({'language': 'en'});
+        descriptionEditor.insertInto(document.getElementById('descriptionEditor'));
+        descriptionEditor.setMathML(description);
+
+
+
+    };
+
+    const problemSaved = /*[[${problemSaved}]]*/ 'default';
+    if (problemSaved) {
+        setTimeout(function () {
+            $("#success-alert").fadeOut().empty();
+        }, 5000);
+    }
+
+    function  getMatMl(){
+        $('#description').val(descriptionEditor.getMathML());
+
+    }
+    /*]]>*/
+</script>
+</body>
+
+</html>

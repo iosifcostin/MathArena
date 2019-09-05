@@ -1,0 +1,601 @@
+<math mathsize="40">
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mtext style="border:1px;" mathsize="50">Operators - arrows 1</mtext>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>21F6</mtext>
+		<mrow>
+			<mo style="border:1px">&#x21F6;</mo>
+			<mo minsize="1.1" style="border:1px">&#x21F6;</mo>
+			<mo minsize="2" style="border:1px">&#x21F6;</mo>
+			<mo minsize="5" style="border:1px">&#x21F6;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>21FD</mtext>
+		<mrow>
+			<mo style="border:1px">&#x21FD;</mo>
+			<mo minsize="1.1" style="border:1px">&#x21FD;</mo>
+			<mo minsize="2" style="border:1px">&#x21FD;</mo>
+			<mo minsize="5" style="border:1px">&#x21FD;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>21FE</mtext>
+		<mrow>
+			<mo style="border:1px">&#x21FE;</mo>
+			<mo minsize="1.1" style="border:1px">&#x21FE;</mo>
+			<mo minsize="2" style="border:1px">&#x21FE;</mo>
+			<mo minsize="5" style="border:1px">&#x21FE;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>21FF</mtext>
+		<mrow>
+			<mo style="border:1px">&#x21FF;</mo>
+			<mo minsize="1.1" style="border:1px">&#x21FF;</mo>
+			<mo minsize="2" style="border:1px">&#x21FF;</mo>
+			<mo minsize="5" style="border:1px">&#x21FF;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>27F0</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27F0;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27F0;</mo>
+			<mo minsize="2" style="border:1px">&#x27F0;</mo>
+			<mo minsize="5" style="border:1px">&#x27F0;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>27F1</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27F1;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27F1;</mo>
+			<mo minsize="2" style="border:1px">&#x27F1;</mo>
+			<mo minsize="5" style="border:1px">&#x27F1;</mo>
+		</mrow>
+	</mfrac>
+	<mfrac style="border:1px">
+		<mtext>21F5</mtext>
+		<mrow>
+			<mo style="border:1px">&#x21F5;</mo>
+			<mo minsize="1.1" style="border:1px">&#x21F5;</mo>
+			<mo minsize="2" style="border:1px">&#x21F5;</mo>
+			<mo minsize="5" style="border:1px">&#x21F5;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>27F5</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27F5;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27F5;</mo>
+			<mo minsize="2" style="border:1px">&#x27F5;</mo>
+			<mo minsize="5" style="border:1px">&#x27F5;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>27F6</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27F6;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27F6;</mo>
+			<mo minsize="2" style="border:1px">&#x27F6;</mo>
+			<mo minsize="5" style="border:1px">&#x27F6;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>27F7</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27F7;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27F7;</mo>
+			<mo minsize="2" style="border:1px">&#x27F7;</mo>
+			<mo minsize="5" style="border:1px">&#x27F7;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>27F8</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27F8;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27F8;</mo>
+			<mo minsize="2" style="border:1px">&#x27F8;</mo>
+			<mo minsize="5" style="border:1px">&#x27F8;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>27F9</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27F9;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27F9;</mo>
+			<mo minsize="2" style="border:1px">&#x27F9;</mo>
+			<mo minsize="5" style="border:1px">&#x27F9;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>27FA</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27FA;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27FA;</mo>
+			<mo minsize="2" style="border:1px">&#x27FA;</mo>
+			<mo minsize="5" style="border:1px">&#x27FA;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>27FB</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27FB;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27FB;</mo>
+			<mo minsize="2" style="border:1px">&#x27FB;</mo>
+			<mo minsize="5" style="border:1px">&#x27FB;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>27FC</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27FC;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27FC;</mo>
+			<mo minsize="2" style="border:1px">&#x27FC;</mo>
+			<mo minsize="5" style="border:1px">&#x27FC;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>27FD</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27FD;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27FD;</mo>
+			<mo minsize="2" style="border:1px">&#x27FD;</mo>
+			<mo minsize="5" style="border:1px">&#x27FD;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>27FE</mtext>
+		<mrow>
+			<mo style="border:1px">&#x27FE;</mo>
+			<mo minsize="1.1" style="border:1px">&#x27FE;</mo>
+			<mo minsize="2" style="border:1px">&#x27FE;</mo>
+			<mo minsize="5" style="border:1px">&#x27FE;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>290A</mtext>
+		<mrow>
+			<mo style="border:1px">&#x290A;</mo>
+			<mo minsize="1.1" style="border:1px">&#x290A;</mo>
+			<mo minsize="2" style="border:1px">&#x290A;</mo>
+			<mo minsize="5" style="border:1px">&#x290A;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>290B</mtext>
+		<mrow>
+			<mo style="border:1px">&#x290B;</mo>
+			<mo minsize="1.1" style="border:1px">&#x290B;</mo>
+			<mo minsize="2" style="border:1px">&#x290B;</mo>
+			<mo minsize="5" style="border:1px">&#x290B;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>2912</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2912;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2912;</mo>
+			<mo minsize="2" style="border:1px">&#x2912;</mo>
+			<mo minsize="5" style="border:1px">&#x2912;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>2913</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2913;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2913;</mo>
+			<mo minsize="2" style="border:1px">&#x2913;</mo>
+			<mo minsize="5" style="border:1px">&#x2913;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>294E</mtext>
+		<mrow>
+			<mo style="border:1px">&#x294E;</mo>
+			<mo minsize="1.1" style="border:1px">&#x294E;</mo>
+			<mo minsize="2" style="border:1px">&#x294E;</mo>
+			<mo minsize="5" style="border:1px">&#x294E;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>2950</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2950;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2950;</mo>
+			<mo minsize="2" style="border:1px">&#x2950;</mo>
+			<mo minsize="5" style="border:1px">&#x2950;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>294F</mtext>
+		<mrow>
+			<mo style="border:1px">&#x294F;</mo>
+			<mo minsize="1.1" style="border:1px">&#x294F;</mo>
+			<mo minsize="2" style="border:1px">&#x294F;</mo>
+			<mo minsize="5" style="border:1px">&#x294F;</mo>
+		</mrow>
+	</mfrac>
+	<mfrac style="border:1px">
+		<mtext>2951</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2951;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2951;</mo>
+			<mo minsize="2" style="border:1px">&#x2951;</mo>
+			<mo minsize="5" style="border:1px">&#x2951;</mo>
+		</mrow>
+	</mfrac>
+	<mfrac style="border:1px">
+		<mtext>2954</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2954;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2954;</mo>
+			<mo minsize="2" style="border:1px">&#x2954;</mo>
+			<mo minsize="5" style="border:1px">&#x2954;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>2955</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2955;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2955;</mo>
+			<mo minsize="2" style="border:1px">&#x2955;</mo>
+			<mo minsize="5" style="border:1px">&#x2955;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>2952</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2952;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2952;</mo>
+			<mo minsize="2" style="border:1px">&#x2952;</mo>
+			<mo minsize="5" style="border:1px">&#x2952;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>2953</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2953;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2953;</mo>
+			<mo minsize="2" style="border:1px">&#x2953;</mo>
+			<mo minsize="5" style="border:1px">&#x2953;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>2956</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2956;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2956;</mo>
+			<mo minsize="2" style="border:1px">&#x2956;</mo>
+			<mo minsize="5" style="border:1px">&#x2956;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>2957</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2957;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2957;</mo>
+			<mo minsize="2" style="border:1px">&#x2957;</mo>
+			<mo minsize="5" style="border:1px">&#x2957;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>2958</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2958;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2958;</mo>
+			<mo minsize="2" style="border:1px">&#x2958;</mo>
+			<mo minsize="5" style="border:1px">&#x2958;</mo>
+		</mrow>
+	</mfrac>
+	<mfrac style="border:1px">
+		<mtext>2959</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2959;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2959;</mo>
+			<mo minsize="2" style="border:1px">&#x2959;</mo>
+			<mo minsize="5" style="border:1px">&#x2959;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>295C</mtext>
+		<mrow>
+			<mo style="border:1px">&#x295C;</mo>
+			<mo minsize="1.1" style="border:1px">&#x295C;</mo>
+			<mo minsize="2" style="border:1px">&#x295C;</mo>
+			<mo minsize="5" style="border:1px">&#x295C;</mo>
+		</mrow>
+	</mfrac>
+	<mfrac style="border:1px">
+		<mtext>2960</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2960;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2960;</mo>
+			<mo minsize="2" style="border:1px">&#x2960;</mo>
+			<mo minsize="5" style="border:1px">&#x2960;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>295A</mtext>
+		<mrow>
+			<mo style="border:1px">&#x295A;</mo>
+			<mo minsize="1.1" style="border:1px">&#x295A;</mo>
+			<mo minsize="2" style="border:1px">&#x295A;</mo>
+			<mo minsize="5" style="border:1px">&#x295A;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>295B</mtext>
+		<mrow>
+			<mo style="border:1px">&#x295B;</mo>
+			<mo minsize="1.1" style="border:1px">&#x295B;</mo>
+			<mo minsize="2" style="border:1px">&#x295B;</mo>
+			<mo minsize="5" style="border:1px">&#x295B;</mo>
+		</mrow>
+	</mfrac>
+
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+
+	<mfrac style="border:1px">
+		<mtext>295E</mtext>
+		<mrow>
+			<mo style="border:1px">&#x295E;</mo>
+			<mo minsize="1.1" style="border:1px">&#x295E;</mo>
+			<mo minsize="2" style="border:1px">&#x295E;</mo>
+			<mo minsize="5" style="border:1px">&#x295E;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>295F</mtext>
+		<mrow>
+			<mo style="border:1px">&#x295F;</mo>
+			<mo minsize="1.1" style="border:1px">&#x295F;</mo>
+			<mo minsize="2" style="border:1px">&#x295F;</mo>
+			<mo minsize="5" style="border:1px">&#x295F;</mo>
+		</mrow>
+	</mfrac>
+
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>295D</mtext>
+		<mrow>
+			<mo style="border:1px">&#x295D;</mo>
+			<mo minsize="1.1" style="border:1px">&#x295D;</mo>
+			<mo minsize="2" style="border:1px">&#x295D;</mo>
+			<mo minsize="5" style="border:1px">&#x295D;</mo>
+		</mrow>
+	</mfrac>
+	<mfrac style="border:1px">
+		<mtext>2961</mtext>
+		<mrow>
+			<mo style="border:1px">&#x2961;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2961;</mo>
+			<mo minsize="2" style="border:1px">&#x2961;</mo>
+			<mo minsize="5" style="border:1px">&#x2961;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>296E</mtext>
+		<mrow>
+			<mo style="border:1px">&#x296E;</mo>
+			<mo minsize="1.1" style="border:1px">&#x296E;</mo>
+			<mo minsize="2" style="border:1px">&#x296E;</mo>
+			<mo minsize="5" style="border:1px">&#x296E;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>296F</mtext>
+		<mrow>
+			<mo style="border:1px">&#x296F;</mo>
+			<mo minsize="1.1" style="border:1px">&#x296F;</mo>
+			<mo minsize="2" style="border:1px">&#x296F;</mo>
+			<mo minsize="5" style="border:1px">&#x296F;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>005E</mtext>
+		<mrow>
+			<mo style="border:1px">&#x005E;</mo>
+			<mo minsize="1.1" style="border:1px">&#x005E;</mo>
+			<mo minsize="2" style="border:1px">&#x005E;</mo>
+			<mo minsize="5" style="border:1px">&#x005E;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>030C</mtext>
+		<mrow>
+			<mo style="border:1px">&#x030C;</mo>
+			<mo minsize="1.1" style="border:1px">&#x030C;</mo>
+			<mo minsize="2" style="border:1px">&#x030C;</mo>
+			<mo minsize="5" style="border:1px">&#x030C;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>005F</mtext>
+		<mrow>
+			<mo style="border:1px">&#x005F;</mo>
+			<mo minsize="1.1" style="border:1px">&#x005F;</mo>
+			<mo minsize="2" style="border:1px">&#x005F;</mo>
+			<mo minsize="5" style="border:1px">&#x005F;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>007E</mtext>
+		<mrow>
+			<mo style="border:1px">&#x007E;</mo>
+			<mo minsize="1.1" style="border:1px">&#x007E;</mo>
+			<mo minsize="2" style="border:1px">&#x007E;</mo>
+			<mo minsize="5" style="border:1px">&#x007E;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>203E</mtext>
+		<mrow>
+			<mo style="border:1px">&#x203E;</mo>
+			<mo minsize="1.1" style="border:1px">&#x203E;</mo>
+			<mo minsize="2" style="border:1px">&#x203E;</mo>
+			<mo minsize="5" style="border:1px">&#x203E;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>23B4</mtext>
+		<mrow>
+			<mo style="border:1px">&#x23B4;</mo>
+			<mo minsize="1.1" style="border:1px">&#x23B4;</mo>
+			<mo minsize="2" style="border:1px">&#x23B4;</mo>
+			<mo minsize="5" style="border:1px">&#x23B4;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>23B5</mtext>
+		<mrow>
+			<mo style="border:1px">&#x23B5;</mo>
+			<mo minsize="1.1" style="border:1px">&#x23B5;</mo>
+			<mo minsize="2" style="border:1px">&#x23B5;</mo>
+			<mo minsize="5" style="border:1px">&#x23B5;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>23DC</mtext>
+		<mrow>
+			<mo style="border:1px">&#x23DC;</mo>
+			<mo minsize="1.1" style="border:1px">&#x23DC;</mo>
+			<mo minsize="2" style="border:1px">&#x23DC;</mo>
+			<mo minsize="5" style="border:1px">&#x23DC;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>23DD</mtext>
+		<mrow>
+			<mo style="border:1px">&#x23DD;</mo>
+			<mo minsize="1.1" style="border:1px">&#x23DD;</mo>
+			<mo minsize="2" style="border:1px">&#x23DD;</mo>
+			<mo minsize="5" style="border:1px">&#x23DD;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>23DE</mtext>
+		<mrow>
+			<mo style="border:1px">&#x23DE;</mo>
+			<mo minsize="1.1" style="border:1px">&#x23DE;</mo>
+			<mo minsize="2" style="border:1px">&#x23DE;</mo>
+			<mo minsize="5" style="border:1px">&#x23DE;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>23DF</mtext>
+		<mrow>
+			<mo style="border:1px">&#x23DF;</mo>
+			<mo minsize="1.1" style="border:1px">&#x23DF;</mo>
+			<mo minsize="2" style="border:1px">&#x23DF;</mo>
+			<mo minsize="5" style="border:1px">&#x23DF;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>23E0</mtext>
+		<mrow>
+			<mo style="border:1px">&#x23E0;</mo>
+			<mo minsize="1.1" style="border:1px">&#x23E0;</mo>
+			<mo minsize="2" style="border:1px">&#x23E0;</mo>
+			<mo minsize="5" style="border:1px">&#x23E0;</mo>
+		</mrow>
+	</mfrac>
+
+	<mfrac style="border:1px">
+		<mtext>23E1</mtext>
+		<mrow>
+			<mo style="border:1px">&#x23E1;</mo>
+			<mo minsize="1.1" style="border:1px">&#x23E1;</mo>
+			<mo minsize="2" style="border:1px">&#x23E1;</mo>
+			<mo minsize="5" style="border:1px">&#x23E1;</mo>
+		</mrow>
+	</mfrac>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mfrac style="border:1px">
+		<mtext>0644</mtext>
+		<mrow>
+			<mo style="border:1px">&#x0644;</mo>
+			<mo minsize="1.1" style="border:1px">&#x0644;</mo>
+			<mo minsize="2" style="border:1px">&#x0644;</mo>
+			<mo minsize="5" style="border:1px">&#x0644;</mo>
+		</mrow>
+	</mfrac>
+
+</math>

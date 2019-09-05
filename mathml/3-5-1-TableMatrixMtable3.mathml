@@ -1,0 +1,83 @@
+<math mathsize="50">
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mtext style="border:1px;" mathsize="50">Table Matrix - mtable columnalign</mtext>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" >
+	  <mtable style="border:1px" columnalign="left">
+	    <mtr style="border:1px">
+	      <mtd > <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr style="border:1px">
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>left</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr style="border:1px">
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	  <mo>+</mo>
+	  <mtable style="border:1px" columnalign="center">
+	    <mtr style="border:1px">
+	      <mtd > <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr style="border:1px">
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mtext>center</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr style="border:1px">
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	  <mo>+</mo>
+	  <mtable style="border:1px" columnalign="right">
+	    <mtr style="border:1px">
+	      <mtd > <mn>1</mn> </mtd>
+	      <mtd> <mn>2</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr style="border:1px">
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>right</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr style="border:1px">
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	    </mtr>
+	  </mtable>
+	</mrow>
+	
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" >
+	  <mtable style="border:1px" columnalign="left center right">
+	    <mtr style="border:1px">
+	      <mtd> <mtext>left</mtext> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	      <mtd> <mn>3</mn> </mtd>
+	    </mtr>
+	    <mtr style="border:1px">
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mtext>center</mtext> </mtd>
+	      <mtd> <mn>0</mn> </mtd>
+	    </mtr>
+	    <mtr style="border:1px">
+	      <mtd> <mn>0</mn> </mtd>
+	      <mtd > <mn>1</mn> </mtd>
+	      <mtd>  <mtext>right</mtext> </mtd>
+	    </mtr>
+	  </mtable>
+	</mrow>
+	
+</math>

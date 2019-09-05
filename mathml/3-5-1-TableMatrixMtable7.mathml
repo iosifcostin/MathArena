@@ -1,0 +1,381 @@
+<math mathsize="45">
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mtext style="border:1px;" mathsize="40">Table Matrix - label: rowalign, side, minlabelspacing, dir</mtext>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" >
+		<mtable>
+		  <mlabeledtr >
+		    <mtd style="border:1px">
+		      <mtext> (2.1) </mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		       <mo>+</mo>
+		       <mfrac>
+		       		<mn>1</mn>
+		       		<mn>2</mn>
+		       </mfrac>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		  <mtr>
+		    <mtd style="border:1px">
+		     <mtext>rowalign="baseline"</mtext>
+		    </mtd>
+		  </mtr>
+		  <mlabeledtr>
+		    <mtd style="border:1px">
+		      <mtext> (2.2)</mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		</mtable>
+	</mrow>
+	<mo>+</mo>
+	<mrow style="border:1px;" >
+		<mtable rowalign="bottom">
+		  <mlabeledtr >
+		    <mtd style="border:1px">
+		      <mtext> (2.1) </mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		       <mo>+</mo>
+		       <mfrac>
+		       		<mn>1</mn>
+		       		<mn>2</mn>
+		       </mfrac>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		  <mtr>
+		    <mtd style="border:1px">
+		     <mtext>rowalign="bottom"</mtext>
+		    </mtd>
+		  </mtr>
+		  <mlabeledtr>
+		    <mtd style="border:1px">
+		      <mtext> (2.2)</mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		</mtable>
+	</mrow>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" >
+		<mtable rowalign="top">
+		  <mlabeledtr >
+		    <mtd style="border:1px">
+		      <mtext> (2.1) </mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		       <mo>+</mo>
+		       <mfrac>
+		       		<mn>1</mn>
+		       		<mn>2</mn>
+		       </mfrac>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		  <mtr>
+		    <mtd style="border:1px">
+		     <mtext>rowalign="top"</mtext>
+		    </mtd>
+		  </mtr>
+		  <mlabeledtr>
+		    <mtd style="border:1px">
+		      <mtext> (2.2)</mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		</mtable>
+	</mrow>
+	<mo>+</mo>
+	<mrow style="border:1px;" >
+		<mtable rowalign="center">
+		  <mlabeledtr >
+		    <mtd style="border:1px">
+		      <mtext> (2.1) </mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		       <mo>+</mo>
+		       <mfrac>
+		       		<mn>1</mn>
+		       		<mn>2</mn>
+		       </mfrac>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		  <mtr>
+		    <mtd style="border:1px">
+		     <mtext>rowalign="center"</mtext>
+		    </mtd>
+		  </mtr>
+		  <mlabeledtr>
+		    <mtd style="border:1px">
+		      <mtext> (2.2)</mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		</mtable>
+	</mrow>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" >
+		<mtable side="left">
+		  <mlabeledtr >
+		    <mtd style="border:1px">
+		      <mtext> (2.1) </mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		       <mo>+</mo>
+		       <mfrac>
+		       		<mn>1</mn>
+		       		<mn>2</mn>
+		       </mfrac>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		  <mtr>
+		    <mtd style="border:1px">
+		     <mtext>side="left"</mtext>
+		    </mtd>
+		  </mtr>
+		  <mlabeledtr>
+		    <mtd style="border:1px">
+		      <mtext> (2.2)</mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		</mtable>
+	</mrow>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" >
+		<mtable side="left" minlabelspacing="200">
+		  <mlabeledtr >
+		    <mtd style="border:1px">
+		      <mtext> (2.1) </mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		       <mo>+</mo>
+		       <mfrac>
+		       		<mn>1</mn>
+		       		<mn>2</mn>
+		       </mfrac>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		  <mtr>
+		    <mtd style="border:1px">
+		     <mtext>minlabelspacing="200"</mtext>
+		    </mtd>
+		  </mtr>
+		  <mlabeledtr>
+		    <mtd style="border:1px">
+		      <mtext> (2.2)</mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		</mtable>
+	</mrow>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" >
+		<mtable side="left" minlabelspacing="200" dir="rtl">
+		  <mlabeledtr >
+		    <mtd style="border:1px">
+		      <mtext> (2.1) </mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		       <mo>+</mo>
+		       <mfrac>
+		       		<mn>1</mn>
+		       		<mn>2</mn>
+		       </mfrac>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		  <mtr>
+		    <mtd style="border:1px">
+		     <mtext>dir="rtl"</mtext>
+		    </mtd>
+		  </mtr>
+		  <mlabeledtr>
+		    <mtd style="border:1px">
+		      <mtext> (2.2)</mtext>
+		    </mtd>
+		    <mtd style="border:1px">
+		     <mrow>
+		       <mi>E</mi>
+		       <mo>=</mo>
+		       <mrow>
+			<mi>m</mi>
+			<mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+			<msup>
+			 <mi>c</mi>
+			 <mn>2</mn>
+			</msup>
+		       </mrow>
+		     </mrow>
+		    </mtd>
+		  </mlabeledtr>
+		</mtable>
+	</mrow>
+
+</math>

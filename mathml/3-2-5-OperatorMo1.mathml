@@ -1,0 +1,160 @@
+<math>
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mtext style="border:1px;" mathsize="50">Operators - fences 1</mtext>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" baseline="true">
+		<mo style="border:1px">&#x2016;</mo>
+		<mo style="border:1px">&#x2308;</mo>
+		<mo style="border:1px">&#x2309;</mo>
+		<mo style="border:1px">&#x230A;</mo>
+		<mo style="border:1px">&#x230B;</mo>
+		<mo style="border:1px">&#x2772;</mo>
+		<mo style="border:1px">&#x2773;</mo>
+		<mo style="border:1px">&#x27E6;</mo>
+		<mo style="border:1px">&#x27E7;</mo>
+		<mo style="border:1px">&#x27E8;</mo>
+		<mo style="border:1px">&#x27E9;</mo>
+		<mo style="border:1px">&#x27EA;</mo>
+		<mo style="border:1px">&#x27EB;</mo>
+		<mo style="border:1px">&#x27EC;</mo>
+		<mo style="border:1px">&#x27ED;</mo>
+		<mo style="border:1px">&#x27EE;</mo>
+		<mo style="border:1px">&#x27EF;</mo>
+		<mo style="border:1px">&#x28;</mo>
+		<mo style="border:1px">&#x29;</mo>
+		<mo style="border:1px">&#x2980;</mo>
+		<mo style="border:1px">&#x2983;</mo>
+		<mo style="border:1px">&#x2984;</mo>
+		<mo style="border:1px">&#x2985;</mo>
+		<mo style="border:1px">&#x2986;</mo>
+		<mo style="border:1px">&#x2987;</mo>
+		<mo style="border:1px">&#x2988;</mo>
+		<mo style="border:1px">&#x2989;</mo>
+		<mo style="border:1px">&#x298A;</mo>
+		<mo style="border:1px">&#x298B;</mo>
+		<mo style="border:1px">&#x298C;</mo>
+		<mo style="border:1px">&#x298D;</mo>
+		<mo style="border:1px">&#x298E;</mo>
+		<mo style="border:1px">&#x298F;</mo>
+		<mo style="border:1px">&#x2990;</mo>
+		<mo style="border:1px">&#x2991;</mo>
+		<mo style="border:1px">&#x2992;</mo>
+		<mo style="border:1px">&#x2993;</mo>
+		<mo style="border:1px">&#x2994;</mo>
+		<mo style="border:1px">&#x2995;</mo>
+		<mo style="border:1px">&#x2996;</mo>
+		<mo style="border:1px">&#x2997;</mo>
+		<mo style="border:1px">&#x2998;</mo>
+		<mo style="border:1px">&#x29FC;</mo>
+		<mo style="border:1px">&#x29FD;</mo>
+		<mo style="border:1px">&#x5B;</mo>
+		<mo style="border:1px">&#x5D;</mo>
+		<mo style="border:1px">&#x7B;</mo>
+		<mo style="border:1px">&#x7D;</mo>
+		<mo>+</mo>
+		<mo style="border:1px">&#x7C;</mo>
+		<mo>+</mo>
+		<mo style="border:1px">&#x7C;&#x7C;</mo>
+		<mo>+</mo>
+		<mo style="border:1px">&#x7C;&#x7C;&#x7C;</mo>
+	</mrow>
+	
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" baseline="true">
+		<mrow style="border:1px">
+			<mo style="border:1px">&#x28;</mo>
+			<mtext style="border:1px">a</mtext>
+			<mtext>b</mtext>
+			<mo style="border:1px">&#x29;</mo>
+		</mrow>
+			<mo>+</mo>
+		<mrow style="border:1px">
+			<mo style="border:1px">&#x28;</mo>
+			<mtext mathsize="180" style="border:1px">a</mtext>
+			<mtext>b</mtext>
+			<mo style="border:1px">&#x29;</mo>
+		</mrow>
+			<mo>+</mo>
+		<mrow style="border:1px">
+			<mo style="border:1px">&#x28;</mo>
+			<mtext mathsize="220" style="border:1px">a</mtext>
+			<mtext>b</mtext>
+			<mo style="border:1px">&#x29;</mo>
+		</mrow>
+			<mo>+</mo>
+		<mrow style="border:1px">
+			<mo style="border:1px">&#x28;</mo>
+			<mtext mathsize="300" style="border:1px">a</mtext>
+			<mtext>b</mtext>
+			<mo style="border:1px">&#x29;</mo>
+		</mrow>
+			<mo>+</mo>
+		<mrow style="border:1px">
+			<mo style="border:1px">&#x28;</mo>
+			<mtext mathsize="400" style="border:1px">a</mtext>
+			<mtext>b</mtext>
+			<mo style="border:1px">&#x29;</mo>
+		</mrow>
+	</mrow>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" baseline="true">
+		<mrow style="border:1px">
+			<mo style="border:1px">||</mo>
+			<mrow>
+				<mtext mathsize="220" style="border:1px">a</mtext>
+				<mtext>b</mtext>
+				<mo style="border:1px">||</mo>
+				<mtext>b</mtext>
+			</mrow>
+			<mo style="border:1px">&#x29;</mo>
+		</mrow>
+		<mtext mathsize="320" style="border:1px">a</mtext>
+		<mrow style="border:1px">
+			<mo style="border:1px">||</mo>
+			<mrow>
+				<mtext mathsize="500" style="border:1px">a</mtext>
+				<mrow>
+					<mtext>b</mtext>
+					<mo style="border:1px">||</mo>
+					<mtext>maxsize</mtext>
+				</mrow>
+			</mrow>
+			<mo style="border:1px" maxsize="2">&#x29;</mo>
+		</mrow>
+		<mrow style="border:1px">
+			<mo style="border:1px">||</mo>
+			<mrow>
+				<mtext mathsize="200" style="border:1px">a</mtext>
+				<mrow>
+					<mtext>b</mtext>
+					<mo style="border:1px">||</mo>
+					<mtext>b</mtext>
+				</mrow>
+			</mrow>
+			<mo style="border:1px" maxsize="2">&#x29;</mo>
+			<mo style="border:1px" maxsize="0.5">&#x28;</mo>
+			<mo style="border:1px" maxsize="1">&#x28;</mo>
+			<mo style="border:1px" minsize="3">&#x5B;</mo>
+		</mrow>
+	</mrow>
+	
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;" baseline="true">
+		<mrow style="border:1px">
+		  <mi> x </mi>
+		  <munder>
+			<mo> &#x2192;<!--RIGHTWARDS ARROW--> </mo>
+			<mtext> maps to </mtext>
+		  </munder>
+		  <mi> y </mi>
+		</mrow>
+		  
+		<mrow style="border:1px">
+			<mo style="border:1px">&#x2044;</mo>
+			<mo minsize="1.1" style="border:1px">&#x2044;</mo>
+			<mo minsize="2" style="border:1px">&#x2044;</mo>
+		</mrow>
+	</mrow>
+</math>

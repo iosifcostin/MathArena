@@ -1,0 +1,77 @@
+<math >
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mtext style="border:1px;" mathsize="50">Mscarries</mtext>
+
+	<mspace linebreak="newline" indentalign="center"></mspace>
+	<mrow style="border:1px;margin:5px" baseline="true" axis="true" >
+		<mstack style="border:1px;margin:3px">
+		  <mscarries><mn>1</mn><mn>1</mn><none/></mscarries>
+		  <mscarries><mn>1</mn><mn>1</mn><none/></mscarries>
+		  <mn>1,234</mn>
+		  <msrow><mo>&#xD7;<!--MULTIPLICATION SIGN--></mo><mn>4,321</mn></msrow>
+		  <msline/>
+
+		  <mscarries position='2'>
+		    <mn>1</mn>
+		    <none/>
+		    <mn>1</mn>
+		    <mn>1</mn>
+		    <mn>1</mn>
+		    <none/>
+		    <mn>1</mn>
+		  </mscarries>
+		  <msgroup shift="1">
+		    <mn>1,234</mn>
+		    <mn>24,68</mn>
+		    <mn>370,2</mn>
+		    <msrow position="1"> <mn>4,936</mn> </msrow>
+		  </msgroup>
+		  <msline/>
+
+		  <mn>5,332,114</mn>
+		</mstack>	
+	</mrow>
+	<mrow style="border:1px;margin:5px" baseline="true" axis="true" >
+		<mstack style="border:1px;margin:3px">
+		  <mscarries crossout='updiagonalstrike'>
+		    <mn>2</mn>  
+		    <mscarry crossout='updiagonalstrike downdiagonalstrike verticalstrike horizontalstrike'><mn>12</mn></mscarry>  
+		    <mscarry crossout='none'> <none/> </mscarry>
+		  </mscarries>
+		  <mn>2,327</mn>
+		  <msrow> <mo>-</mo> <mn> 1,156</mn> </msrow>
+		  <msline/>
+		  <mn>1,171</mn>
+		</mstack>	
+	</mrow>
+
+	<mrow style="border:1px;margin:5px" baseline="true" axis="true" >
+		<mstack style="border:1px;margin:3px">
+		  <mscarries location='nw'>
+		    <none/>
+		    <mscarry crossout='updiagonalstrike' location='n'> <mn>2</mn> </mscarry>
+		    <mn>1</mn>
+		    <none/>
+		  </mscarries>
+		  <mn style="border:1px">2,327</mn>
+		  <msrow style="border:1px"> <mo>-</mo> <mn> 1,156</mn> </msrow>
+		  <msline/>
+		  <mn style="border:1px">1,171</mn>
+		</mstack>
+	</mrow>
+
+	<mrow style="border:1px;margin:5px">
+		<mstack style="border:1px;margin:3px">
+		  <mscarries scriptsizemultiplier="0.3">
+		    <mscarry crossout='updiagonalstrike'><none/></mscarry>
+		    <mn>10</mn>
+		  </mscarries>
+		  <mn>52</mn>
+		  <msrow> <mo>-</mo> <mn> 7</mn> </msrow>
+		  <msline/>
+		  <mn>45</mn>
+		</mstack>	
+	</mrow>
+
+</math>
