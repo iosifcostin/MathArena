@@ -36,8 +36,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Transactional
     @Modifying
-    @Query("UPDATE User u SET u.profilePicture = :#{#image} WHERE u.id = :#{#id}")
-    void setProfilePicture(@Param("id") Long id, @Param("image") byte[] image);
+    @Query("UPDATE User u SET u.profilePicturePath = :#{#path} WHERE u.id = :#{#id}")
+    void setProfilePicture(@Param("id") Long id, @Param("path") String path);
 
     //region Find eagerly
     //==========================================================================

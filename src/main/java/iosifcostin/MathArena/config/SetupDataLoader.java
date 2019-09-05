@@ -26,20 +26,12 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     private boolean alreadySetup = false;
 
     private UserService userService;
-    private MathProblemService mathProblemService;
     private RoleService roleService;
-    private CategoryService categoryService;
-    private ProblemClassService problemClassService;
-
-
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public SetupDataLoader( UserService userService, MathProblemService mathProblemService, RoleService roleService, CategoryService categoryService, ProblemClassService problemClassService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public SetupDataLoader( UserService userService, RoleService roleService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userService = userService;
-        this.mathProblemService = mathProblemService;
         this.roleService = roleService;
-        this.categoryService = categoryService;
-        this.problemClassService = problemClassService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -59,9 +51,6 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         Role roleUser = createRoleIfNotFound("ROLE_USER");
 
 
-        byte[] profilePicture = convertPicture("src/main/resources/static/images/no-image.jpg");
-
-
         List<Role> userRoles = Collections.singletonList(roleUser);
         List<Role> rootRoles = Collections.singletonList(roleAdmin);
 
@@ -72,11 +61,11 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 
         //region Creating users
         //================================================================================
-        createUserIfNotFound("admin@gmail.com", "MathArena", "Admin", "admin", rootRoles, profilePicture);
+        createUserIfNotFound("admin@gmail.com", "MathArena", "Admin", "admin", rootRoles);
 
         for (int i = 1; i < 4; i++) {
             createUserIfNotFound("user" + i + "@gmail.com", "fName" + i, "lName" + i,
-                    "user" + i, userRoles, profilePicture);
+                    "user" + i, userRoles);
         }
         //================================================================================
         //endregion
@@ -98,7 +87,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 
     @Transactional
     void createUserIfNotFound(final String email, String firstName, String lastName,
-                              String password, List<Role> userRoles, byte[] profilePicture) {
+                              String password, List<Role> userRoles) {
         User user = userService.findByEmail(email);
         if (user == null) {
             user = new User();
@@ -109,24 +98,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
             user.setEmail(email);
             user.setRoles(userRoles);
             user.setEnabled(true);
-            user.setProfilePicture(profilePicture);
+            user.setProfilePicturePath("/images/no-image.jpg");
             userService.save(user);
         }
     }
 
-    private byte[] convertPicture(String filePath) {
-        BufferedImage squareImage;
-        try {
-
-            squareImage = ImageIO.read(new File(filePath));
-
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(squareImage, "jpg", baos);
-//            return Base64.getEncoder().encodeToString(baos.toByteArray());
-            return baos.toByteArray();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

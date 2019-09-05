@@ -82,19 +82,24 @@ public class UserService {
         return userRepository.findByEmailJoinFetchProblems(email);
     }
 
-    @CacheEvict(value = {"cache.allUsers","cache.allUsersPageable","cache.byEmailContaining"
-    ,"cache.byEmailContaining","cache.byFirstNameContaining","cache.byLastNameContaining","cache.userById"}, allEntries = true)
-    public void setProfilePicture (Long id, byte [] image){userRepository.setProfilePicture(id, image);}
+    @CacheEvict(value = {"cache.allUsers","cache.allUsersPageable","cache.byEmailContaining",
+            "cache.byFirstNameContaining","cache.byLastNameContaining","cache.userById"}, allEntries = true)
+    public void setProfilePicture (Long id ,String path){userRepository.setProfilePicture(id,path);}
 
     @Transactional
-    @CacheEvict(value = {"cache.allUsers","cache.allProblemsPageable","cache.allUsersPageable","cache.byEmailContaining",
+    @CacheEvict(value = {"cache.allUsers"
+//            , "cache.allProblemsPageable"
+            ,"cache.allUsersPageable","cache.byEmailContaining",
             "cache.byEmailContaining","cache.byFirstNameContaining","cache.byLastNameContaining","cache.userById"}, allEntries = true)
     public void save(User user) {
         userRepository.save(user);
     }
 
 
-    @CacheEvict(value = {"cache.allUsers","cache.allProblemsPageable","cache.allUsersPageable","cache.byEmailContaining",
+    @CacheEvict(value = {"cache.allUsers"
+//            ,"cache.allProblemsPageable"
+            , "cache.allUsersPageable"
+            ,"cache.byEmailContaining",
             "cache.byEmailContaining","cache.byFirstNameContaining","cache.byLastNameContaining","cache.userById"}, allEntries = true)
     public void deleteById(Long id) {
         userRepository.deleteById(id);

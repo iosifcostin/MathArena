@@ -1,5 +1,7 @@
 package iosifcostin.MathArena.controller.admin;
 
+import fmath.components.MathMLFormula;
+import iosifcostin.MathArena.mathMl.MathMlToPng;
 import iosifcostin.MathArena.model.Category;
 import iosifcostin.MathArena.model.MathProblem;
 import iosifcostin.MathArena.model.ProblemClass;
@@ -16,9 +18,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -30,12 +36,14 @@ public class AdminPostMappingController {
     private MathProblemService mathProblemService;
     private CategoryService categoryService;
     private ProblemClassService problemClassService;
+    private MathMlToPng mathMlToPng;
 
-    public AdminPostMappingController(UserService userService, MathProblemService mathProblemService, CategoryService categoryService, ProblemClassService problemClassService) {
+    public AdminPostMappingController(UserService userService, MathProblemService mathProblemService, CategoryService categoryService, ProblemClassService problemClassService, MathMlToPng mathMlToPng) {
         this.userService = userService;
         this.mathProblemService = mathProblemService;
         this.categoryService = categoryService;
         this.problemClassService = problemClassService;
+        this.mathMlToPng = mathMlToPng;
     }
 
     @PostMapping(value = "/saveProblem" , params = "action=save")
@@ -44,9 +52,13 @@ public class AdminPostMappingController {
                                  BindingResult bindingResult, HttpSession session,
                                  HttpServletRequest request, Errors errors) {
 
-        MathProblem nameExist = mathProblemService.findByName(mathProblem.getName());
+        String descriptionFileName = "problem" + System.currentTimeMillis()+".png";
+        String resultFileName = "result" + System.currentTimeMillis()+".png";
+
         model.addAttribute("categories", categoryService.findAll());
         model.addAttribute("classes", problemClassService.findAll());
+
+        MathProblem nameExist = mathProblemService.findByName(mathProblem.getName());
 
         if (nameExist != null) {
             model.addAttribute("description", mathProblem.getDescription());
@@ -61,12 +73,16 @@ public class AdminPostMappingController {
             modelAndView.setViewName("admin/addProblem");
         } else {
             mathProblem.setDatePosted(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()));
+            mathMlToPng.convertMathMl(descriptionFileName,resultFileName,mathProblem.getDescription(),mathProblem.getResult());
+            mathProblem.setDescriptionPath("/problemsImages/" + descriptionFileName);
+            mathProblem.setResultPath("/problemsImages/" + resultFileName);
             mathProblemService.save(mathProblem);
 
             session.setAttribute("problemSaved", "Problem Saved");
 
             modelAndView.setViewName("redirect:/admin/addProblem");
         }
+
 
         return modelAndView;
     }
@@ -75,6 +91,9 @@ public class AdminPostMappingController {
                                     @ModelAttribute("mathProblem") @Valid final MathProblem mathProblem,
                                     BindingResult bindingResult, HttpSession session,
                                     HttpServletRequest request, Errors errors) {
+
+        String descriptionFileName = "problem" + System.currentTimeMillis()+".png";
+        String resultFileName = "result" + System.currentTimeMillis()+".png";
 
         MathProblem nameExist = mathProblemService.findByName(mathProblem.getName());
         model.addAttribute("categories", categoryService.findAll());
@@ -92,6 +111,11 @@ public class AdminPostMappingController {
             model.addAttribute("editForm", true);
             modelAndView.setViewName("admin/addProblem");
         } else {
+
+            mathProblem.setDatePosted(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()));
+            mathMlToPng.convertMathMl(descriptionFileName,resultFileName,mathProblem.getDescription(),mathProblem.getResult());
+            mathProblem.setDescriptionPath("/problemsImages/" + descriptionFileName);
+            mathProblem.setResultPath("/problemsImages/" + resultFileName);
 
             mathProblemService.edit(mathProblem, (Long) session.getAttribute("initialId"));
 

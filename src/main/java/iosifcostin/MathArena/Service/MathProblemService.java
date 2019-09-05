@@ -28,7 +28,7 @@ public class MathProblemService {
         this.mathMlToPng = mathMlToPng;
     }
 
-        @Cacheable(value = "cache.allProblemsPageable")
+//        @Cacheable(value = "cache.allProblemsPageable")
     public Page<MathProblem> findAllPageable(Pageable pageable) {
         return mathProblemRepo.findAll(pageable);
     }
@@ -54,17 +54,23 @@ public class MathProblemService {
         return mathProblemRepo.findBygivenId(id);
     }
 
-    @CacheEvict(value = {"cache.allProblems","cache.allProblemsPageable","cache.MathProblemById"}, allEntries = true)
+    @CacheEvict(value = {"cache.allProblems"
+//            ,"cache.allProblemsPageable"
+            ,"cache.MathProblemById"}, allEntries = true)
     public void save(MathProblem problem) {
         mathProblemRepo.save(problem);
     }
 
-    @CacheEvict(value = {"cache.allProblems","cache.allProblemsPageable","cache.MathProblemById"}, allEntries = true)
+    @CacheEvict(value = {"cache.allProblems"
+//            ,"cache.allProblemsPageable"
+            ,"cache.MathProblemById"}, allEntries = true)
     public void edit(MathProblem mathProblem, Long id) {
         mathProblemRepo.problemUpdate(mathProblem, id);
     }
 
-    @CacheEvict(value = {"cache.allProblems","cache.allProblemsPageable","cache.MathProblemById"}, allEntries = true)
+    @CacheEvict(value = {"cache.allProblems"
+//            , "cache.allProblemsPageable"
+            ,"cache.MathProblemById"}, allEntries = true)
     public void deleteById(Long id) {
         mathProblemRepo.deleteById(id);
     }
@@ -80,26 +86,6 @@ public class MathProblemService {
         return mathProblemRepo.findByNameContainingOrderByIdAsc(username, pageable);
     }
 
-    public Page<MathProblem> mathMlToPngConversion(Page<MathProblem> mathProblemPage, User user) {
-
-        mathProblemPage.forEach(mathProblem -> {
-            mathProblem.setDescriptionDto(mathMlToPng.convertMathMl(mathProblem.getDescription()));
-            mathProblem.setResultDto(mathMlToPng.convertMathMl(mathProblem.getResult()));
-//            if (user.getId() != null)
-
-//        mathProblem.setProblemSolved(user.getMathProblems().contains(mathProblem));
-        });
-
-        return mathProblemPage;
-    }
-
-    public Page<MathProblem> mathMlToPngConversion(Page<MathProblem> mathProblemPage) {
-        mathProblemPage.forEach(mathProblem -> {
-            mathProblem.setDescriptionDto(mathMlToPng.convertMathMl(mathProblem.getDescription()));
-        });
-
-        return mathProblemPage;
-    }
 
 
 }

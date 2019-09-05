@@ -16,9 +16,11 @@ public class CacheConfiguration {
         return new ConcurrentMapCacheManager(
 //                "cache.allProblemsPageable",
                 "cache.allProblems", "cache.allUsers",
-                "cache.allProblemClasses", "cache.allProblemsPageable",
+                "cache.allProblemClasses",
+//                "cache.allProblemsPageable",
                 "cache.allCategories", "cache.MathProblemById",
-                "cache.allUsersPageable", "cache.byEmailContaining",
+                "cache.allUsersPageable",
+                "cache.byEmailContaining",
                 "cache.byFirstNameContaining", "cache.byLastNameContaining",
                 "cache.allRoles", "cache.roleByName",
                 "cache.roleById","cache.userById"

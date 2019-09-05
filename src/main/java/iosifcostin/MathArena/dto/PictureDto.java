@@ -1,5 +1,6 @@
 package iosifcostin.MathArena.dto;
 
+
 public class PictureDto {
 
     private byte [] picture;

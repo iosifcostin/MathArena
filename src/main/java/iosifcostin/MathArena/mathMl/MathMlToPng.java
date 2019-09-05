@@ -14,8 +14,9 @@ public class MathMlToPng {
     private static String folderFonts = "fonts";
     private static String folderGlyphs = "glyphs";
 
-    public String convertMathMl(String mathml) {
+    public void convertMathMl(String descriptionFileName, String resultFileName, String matmlDescription, String matmlResult) {
 
+        String folderGeneratedImage = "src/main/resources/static/problemsImages/";
 
 //        String folderFonts = "http://localhost:8080/mathml/fonts/stix/descriptor.properties";
         ApplicationConfiguration.setFolderUrlForFonts(folderFonts);
@@ -23,17 +24,19 @@ public class MathMlToPng {
         ApplicationConfiguration.setFolderUrlForGlyphs(folderGlyphs);
         ApplicationConfiguration.setWebApp(false);
 
-        MathMLFormula formula = new MathMLFormula();
-        BufferedImage img = formula.drawImage(mathml);
-
-        final ByteArrayOutputStream os = new ByteArrayOutputStream();
-
         try {
-            ImageIO.write(img, "png", os);
+            MathMLFormula formula = new MathMLFormula();
+            BufferedImage imgDescription = formula.drawImage(matmlDescription);
+            BufferedImage imgResult = formula.drawImage(matmlResult);
+            File description = new File(folderGeneratedImage + descriptionFileName);
+            ImageIO.write(imgDescription, "png", description);
+            File result = new File(folderGeneratedImage + resultFileName);
+            ImageIO.write(imgResult, "png", result);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return Base64.getEncoder().encodeToString(os.toByteArray());
+
 
     }
 

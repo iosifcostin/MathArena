@@ -21,7 +21,7 @@
                     </div>
                     <div class="tm-block-col tm-col-avatar col-4">
                         <div class="tm-avatar-container">
-                            <img th:src="${picture}"
+                            <img  th:src="${picture}"
                                  alt="Avatar"
                                  class="tm-avatar img-fluid mb-4"/>
                             <label class="tm-avatar-delete-link" for="file"><i
@@ -132,6 +132,7 @@
         var emailMessage = /*[[${emailMessage}]]*/ 'default';
         var welcome = /*[[${welcome}]]*/ 'default';
         var userType = /*[[${session.userType}]]*/ 'default';
+        var imageSource = /*[[${picture}]]*/ 'default';
 
         window.onload = function (ev) {
 
@@ -144,6 +145,7 @@
                     }, 3000);
                 }
         };
+
 
         function openProblemModal(id) {
             $('#modal' + id).modal('show')

@@ -29,14 +29,14 @@
     <div class="row tm-content-row" th:if="${mathProblem != null}">
         <div class=".col-xs-6 col-lg-6 col-xl-6 tm-block-col ">
             <h1 class="tm-block-title" th:text="${mathProblem.getName()}" style="color:green "></h1>
-            <img th:src="'data:image/png;base64,' + ${mathProblem.getDescriptionDto()}"
+            <img th:src="${mathProblem.getDescriptionPath()}"
                  alt="img">
 
         </div>
         <div class=".col-xs-6 col-lg-6 col-xl-6 tm-block-col ">
             <div th:if="${problemSolved}">
-                <h class="tm-block-title" style="color:green ">Resultat</h>
-                <img th:src="'data:image/png;base64,' + ${mathProblem.getResultDto()}"
+                <h1 class="tm-block-title" style="color:green ">Resultat</h1>
+                <img th:src="${mathProblem.getResultPath()}"
                      alt="img">
             </div>
             <div th:if="${!problemSolved}">

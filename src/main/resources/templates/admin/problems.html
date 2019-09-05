@@ -85,7 +85,7 @@
                                 <td th:if="${p.getProblemClass() != null}"
                                     th:text="${p.getProblemClass().getProblemClassName()}"></td>
                                 <td th:text="${p.getName()}"></td>
-                                <td><img th:src="'data:image/jpeg;base64,' + ${p.getResultDto()}" alt="img"></td>
+                                <td><img th:src="${p.getResultPath()}" alt="img"></td>
                                 <td th:text="${p.getDatePosted()}"></td>
                                 <td th:text="${p.getUsers().size()}"></td>
                                 <td>
@@ -111,14 +111,14 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <img th:src="'data:image/png;base64,' + ${p.getDescriptionDto()}"
+                                                <img th:src="${p.getDescriptionPath()}"
                                                      alt="img">
                                             </div>
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Result</h5>
                                             </div>
                                             <div class="modal-body">
-                                                <img th:src="'data:image/png;base64,' + ${p.getResultDto()}" alt="img">
+                                                <img th:src="${p.getResultPath()}" alt="img">
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">

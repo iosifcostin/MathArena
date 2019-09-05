@@ -58,8 +58,6 @@ public class ProblemController {
             user = userService.findByGoogleAuthId(authentication.getName());
 
         if (mathProblem != null) {
-            mathProblem.setDescriptionDto(mathMlToPng.convertMathMl(mathProblem.getDescription()));
-            mathProblem.setResultDto(mathMlToPng.convertMathMl(mathProblem.getResult()));
 
             model.addAttribute("problemSolved", user.getMathProblems().contains(mathProblem));
             model.addAttribute("mathProblem", mathProblem);

@@ -22,16 +22,19 @@ public class MathProblem {
     @MathMlNotEmpty
     private String description;
 
-    @Transient
-    private String descriptionDto;
-    @Transient
-    private String resultDto;
-    @Transient
-    private boolean problemSolved;
+    private String descriptionPath;
+
 
     @Column(nullable = false)
     @ValidMathMlFormat
     private String result;
+
+    private String resultPath;
+
+
+    @Transient
+    private boolean problemSolved;
+
 
     private String datePosted;
 
@@ -69,6 +72,14 @@ public class MathProblem {
         this.description = description;
     }
 
+    public String getDescriptionPath() {
+        return descriptionPath;
+    }
+
+    public void setDescriptionPath(String descriptionPath) {
+        this.descriptionPath = descriptionPath;
+    }
+
     public String getResult() {
         return result;
     }
@@ -77,12 +88,20 @@ public class MathProblem {
         this.result = result;
     }
 
-    public Set<User> getUsers() {
-        return users;
+    public String getResultPath() {
+        return resultPath;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setResultPath(String resultPath) {
+        this.resultPath = resultPath;
+    }
+
+    public boolean isProblemSolved() {
+        return problemSolved;
+    }
+
+    public void setProblemSolved(boolean problemSolved) {
+        this.problemSolved = problemSolved;
     }
 
     public String getDatePosted() {
@@ -109,27 +128,13 @@ public class MathProblem {
         this.problemClass = problemClass;
     }
 
-    public String getDescriptionDto() {
-        return descriptionDto;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setDescriptionDto(String descriptionDto) {
-        this.descriptionDto = descriptionDto;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
-    public String getResultDto() {
-        return resultDto;
-    }
 
-    public void setResultDto(String resultDto) {
-        this.resultDto = resultDto;
-    }
-
-    public Boolean getProblemSolved() {
-        return problemSolved;
-    }
-
-    public void setProblemSolved(Boolean problemSolved) {
-        this.problemSolved = problemSolved;
-    }
 }

@@ -31,6 +31,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -56,15 +57,11 @@ public class ProfController {
         User user = userService.findByEmail(authentication.getName());
         user.setPercentDto((user.getMathProblems().size() * 100d) / StaticVars.problemsSize);
 
-        if (user.getGooglePicture() == null) {
-            user.setProfilePicBase64(Base64.getEncoder().encodeToString(user.getProfilePicture()));
-            model.addAttribute("picture", "data:image/png;base64," + user.getProfilePicBase64());
-        }
-
         if (user.getMathProblems().size() != 0)
             model.addAttribute("userSolvedProblems", user.getMathProblems());
 
         model.addAttribute("problemsSize", StaticVars.problemsSize );
+        model.addAttribute("picture", user.getProfilePicturePath());
         model.addAttribute("user", user);
         model.addAttribute("profile", true);
         session.setAttribute("userType", "normalUser");
@@ -94,13 +91,7 @@ public class ProfController {
             model.addAttribute("userSolvedProblems", user.getMathProblems());
 
         model.addAttribute("name", auth.getName());
-
-        if (user.getProfilePicture() != null) {
-            user.setProfilePicBase64(Base64.getEncoder().encodeToString(user.getProfilePicture()));
-            model.addAttribute("picture", "data:image/png;base64," + user.getProfilePicBase64());
-        }else
-            model.addAttribute("picture", user.getGooglePicture());
-
+        model.addAttribute("picture", user.getProfilePicturePath());
         model.addAttribute("problemsSize", StaticVars.problemsSize );
         model.addAttribute("profile", true);
         session.setAttribute("userType", "googleUser");
@@ -117,6 +108,9 @@ public class ProfController {
                                       HttpServletRequest request,
                                       Authentication authentication) {
 
+        String folderGeneratedImage = "src/main/resources/static/images/";
+        String pictureName = "img" + System.currentTimeMillis()+".png";
+
         User user = new User();
         if (session.getAttribute("userType") == "normalUser")
             user = userService.findByEmail(authentication.getName());
@@ -128,14 +122,13 @@ public class ProfController {
 
         try {
             squareImage = cropImage.cropImageSquare(file.getBytes());
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(squareImage, "png", baos);
-            picture.setPicture(baos.toByteArray());
+            File newFile = new File(folderGeneratedImage + pictureName);
+            ImageIO.write(squareImage, "png", newFile);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        userService.setProfilePicture(user.getId(), picture.getPicture());
-
+        userService.setProfilePicture(user.getId(),"/images/" + pictureName);
 
 
         if (session.getAttribute("userType") == "normalUser")
@@ -168,8 +161,8 @@ public class ProfController {
         user.setLastName((String) userAttributes.get("family_name"));
         user.setGoogleAuthId(auth.getName());
         user.setEmail((String) userAttributes.get("email"));
-        user.setGooglePicture((String) userAttributes.get("picture"));
         user.setEnabled(true);
+        user.setProfilePicturePath((String) userAttributes.get("picture"));
 
         return user;
     }

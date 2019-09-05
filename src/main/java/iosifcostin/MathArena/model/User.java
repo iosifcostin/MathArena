@@ -29,21 +29,14 @@ public class User {
 
     @Transient
     private String matchingPassword;
-    @Transient
-    private String profilePicBase64;
+
     @Transient
     private double percentDto;
 
-
-
-    @Lob
-    private byte [] profilePicture;
-
-
+    private String  profilePicturePath;
 
     @Column(unique = true)
     private String googleAuthId;
-    private String googlePicture;
 
     private boolean enabled;
 
@@ -111,20 +104,12 @@ public class User {
         this.matchingPassword = matchingPassword;
     }
 
-    public byte[] getProfilePicture() {
-        return profilePicture;
+    public String getProfilePicturePath() {
+        return profilePicturePath;
     }
 
-    public void setProfilePicture(byte[] profilePicture) {
-        this.profilePicture = profilePicture;
-    }
-
-    public String getProfilePicBase64() {
-        return profilePicBase64;
-    }
-
-    public void setProfilePicBase64(String profilePicBase64) {
-        this.profilePicBase64 = profilePicBase64;
+    public void setProfilePicturePath(String profilePicturePath) {
+        this.profilePicturePath = profilePicturePath;
     }
 
     public String getGoogleAuthId() {
@@ -135,13 +120,6 @@ public class User {
         this.googleAuthId = googleAuthId;
     }
 
-    public String getGooglePicture() {
-        return googlePicture;
-    }
-
-    public void setGooglePicture(String googlePicture) {
-        this.googlePicture = googlePicture;
-    }
 
     public boolean isEnabled() {
         return enabled;

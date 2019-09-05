@@ -52,17 +52,8 @@ public class RegisterController {
                                  HttpServletRequest request, Errors errors) throws ServletException {
 
         User emailExists = userService.findByEmail(user.getEmail());
-        BufferedImage squareImage;
 
-        try {
-            squareImage = ImageIO.read(new File("src/main/resources/static/images/no-image.jpg"));
-
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(squareImage, "jpg", baos);
-            user.setProfilePicture(baos.toByteArray());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        user.setProfilePicturePath("/images/no-image.jpg");
 
         if (emailExists != null) {
             modelAndView.setViewName("register");

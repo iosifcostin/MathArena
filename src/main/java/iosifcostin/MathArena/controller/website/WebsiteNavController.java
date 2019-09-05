@@ -75,11 +75,6 @@ public class WebsiteNavController {
         Map<User, Integer> topUsers = new HashMap<>();
         users.forEach(user -> {
 
-            if (user.getProfilePicture() != null)
-                user.setProfilePicBase64("data:image/png;base64," + Base64.getEncoder().encodeToString(user.getProfilePicture()));
-            else
-                user.setProfilePicBase64(user.getGooglePicture());
-
             user.setPercentDto((user.getMathProblems().size() * 100d) / StaticVars.problemsSize);
             topUsers.put(user, user.getMathProblems().size());
         });
@@ -112,18 +107,19 @@ public class WebsiteNavController {
         StaticVars.problemsSize = mathProblemPage.getTotalElements();
 
 
-//        if (request.isUserInRole("ROLE_USER")) {
-//            User user = new User();
-//            if (session.getAttribute("userType") == "normalUser")
-//                user = userService.findByEmail(authentication.getName());
-//            else if (session.getAttribute("userType") == "googleUser")
-//                user = userService.findByGoogleAuthId(authentication.getName());
-//
-//            mathProblemPage = mathProblemService.mathMlToPngConversion(mathProblemPage);
-//        }
+        if (request.isUserInRole("ROLE_USER")) {
+            User user = new User();
+            if (session.getAttribute("userType") == "normalUser")
+                user = userService.findByEmail(authentication.getName());
+            else if (session.getAttribute("userType") == "googleUser")
+                user = userService.findByGoogleAuthId(authentication.getName());
+
+            User finalUser = user;
+            mathProblemPage.forEach(m -> m.setProblemSolved(finalUser.getMathProblems().contains(m)));
+        }
 
         if (!problemSearchParameters.getPropertyValue().isPresent() || problemSearchParameters.getPropertyValue().get().isEmpty()) {
-            problemSearchResult.setMathProblemPage(mathProblemService.mathMlToPngConversion(mathProblemPage));
+            problemSearchResult.setMathProblemPage(mathProblemPage);
 
         } else {
             problemSearchResult = problemFinder.searchProblemByProperty(pageRequest, problemSearchParameters);

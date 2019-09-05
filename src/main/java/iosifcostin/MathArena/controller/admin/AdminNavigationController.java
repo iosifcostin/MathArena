@@ -71,13 +71,8 @@ public class AdminNavigationController {
         int evalPage = (page.orElse(0) < 1) ? InitialPagingSizes.INITIAL_PAGE : page.get() - 1;
         int evalPageSize = pageSize.orElse(InitialPagingSizes.BUTTONS_TO_SHOW);
 
-
         Page<MathProblem> mathProblems = mathProblemService.findAllPageable(PageRequest.of(evalPage, evalPageSize));
 
-        mathProblems.forEach(mathProblem -> {
-            mathProblem.setResultDto(mathMlToPng.convertMathMl(mathProblem.getResult()));
-            mathProblem.setDescriptionDto(mathMlToPng.convertMathMl(mathProblem.getDescription()));
-        });
 
         Pager pager = new Pager(mathProblems.getTotalPages(), mathProblems.getNumber(), InitialPagingSizes.BUTTONS_TO_SHOW, mathProblems.getTotalElements());
         model.addAttribute("problemsPage", mathProblems);

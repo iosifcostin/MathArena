@@ -32,10 +32,7 @@ public class ProblemFinder {
                 try {
                     long id = Long.parseLong(problemSearchParameters.getPropertyValue().get());
                     mathProblemPage = mathProblemService.findByIdPageable(id, pageRequest);
-                    mathProblemPage.forEach(mathProblem -> {
-                        mathProblem.setDescriptionDto(mathMlToPng.convertMathMl(mathProblem.getDescription()));
-                        mathProblem.setResultDto(mathMlToPng.convertMathMl(mathProblem.getResult()));
-                    });
+
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                     return new ProblemSearchResult(mathProblemService.findAllPageable(pageRequest), true);
@@ -43,10 +40,7 @@ public class ProblemFinder {
                 break;
             case "Nume":
                 mathProblemPage = mathProblemService.findByNameContaining(problemSearchParameters.getPropertyValue().get(), pageRequest);
-                mathProblemPage.forEach(mathProblem -> {
-                    mathProblem.setDescriptionDto(mathMlToPng.convertMathMl(mathProblem.getDescription()));
-                    mathProblem.setResultDto(mathMlToPng.convertMathMl(mathProblem.getResult()));
-                });
+               
                 break;
         }
         return new ProblemSearchResult(mathProblemPage, false);

@@ -30,7 +30,9 @@ public interface MathProblemRepository extends JpaRepository<MathProblem,Long> {
     @Transactional
     @Modifying
     @Query("UPDATE MathProblem p SET p.name = :#{#problem.name}, p.category= :#{#problem.category}," +
-            "p.description = :#{#problem.description}, p.result = :#{#problem.result}, p.problemClass = :#{#problem.problemClass} WHERE p.id = :#{#id}")
+            "p.description = :#{#problem.description}, p.result = :#{#problem.result}, " +
+            "p.problemClass = :#{#problem.problemClass}, p.descriptionPath = :#{#problem.descriptionPath}," +
+            "p.resultPath = :#{#problem.resultPath} WHERE p.id = :#{#id}")
     void problemUpdate(@Param("problem") MathProblem problem, @Param("id") Long id);
 
     @Transactional

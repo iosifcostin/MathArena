@@ -69,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.
                 authorizeRequests()
                 .antMatchers("/adminAssets/**", "/adminFragments/**", "/userFragments/**",
-                        "/userAssets/**", "/websiteAssets/**", "/images/**",
+                        "/userAssets/**", "/websiteAssets/**", "/images/**","/problemsImages/**",
                         "/submit-registration", "/register","/top","/index","/problems","/checkAnswer","/getProblem",
                         "/login", "/", "/login-error", "/forgot-password").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")

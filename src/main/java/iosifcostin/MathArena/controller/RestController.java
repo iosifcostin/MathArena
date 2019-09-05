@@ -48,9 +48,6 @@ public class RestController {
 
         MathProblem mathProblem = mathProblemService.findById(id);
 
-        mathProblem.setDescriptionDto(mathMlToPng.convertMathMl(mathProblem.getDescription()));
-        mathProblem.setResultDto(mathMlToPng.convertMathMl(mathProblem.getResult()));
-
         return new ResponseEntity<>(mathProblem, HttpStatus.OK);
 
     }
@@ -67,7 +64,6 @@ public class RestController {
                 user = userService.findByEmail(authentication.getName());
             else if (session.getAttribute("userType") == "googleUser")
                 user = userService.findByGoogleAuthId(authentication.getName());
-
 
             List<MathProblem> problems = userService.getAssignedProblemsList(user);
             problems.add(mathProblem);
