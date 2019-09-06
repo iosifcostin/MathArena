@@ -3,6 +3,7 @@ package iosifcostin.MathArena.controller.admin;
 import fmath.ApplicationConfiguration;
 import fmath.components.MathMLFormula;
 import iosifcostin.MathArena.Service.S3Service.S3Services;
+import iosifcostin.MathArena.Service.S3Service.S3ServicesImpl;
 import iosifcostin.MathArena.mathMl.MathMlToPng;
 import iosifcostin.MathArena.model.Category;
 import iosifcostin.MathArena.model.MathProblem;
@@ -39,10 +40,9 @@ public class AdminPostMappingController {
     private MathProblemService mathProblemService;
     private CategoryService categoryService;
     private ProblemClassService problemClassService;
-    private S3Services s3Services;
+    private S3ServicesImpl s3Services;
 
-    @Autowired
-    public AdminPostMappingController(UserService userService, MathProblemService mathProblemService, CategoryService categoryService, ProblemClassService problemClassService, S3Services s3Services) {
+    public AdminPostMappingController(UserService userService, MathProblemService mathProblemService, CategoryService categoryService, ProblemClassService problemClassService, S3ServicesImpl s3Services) {
         this.userService = userService;
         this.mathProblemService = mathProblemService;
         this.categoryService = categoryService;

@@ -3,6 +3,7 @@ import iosifcostin.MathArena.Service.CropImage;
 import iosifcostin.MathArena.Service.MathProblemService;
 import iosifcostin.MathArena.Service.RoleService;
 import iosifcostin.MathArena.Service.S3Service.S3Services;
+import iosifcostin.MathArena.Service.S3Service.S3ServicesImpl;
 import iosifcostin.MathArena.Service.UserService;
 import iosifcostin.MathArena.StaticVars.StaticVars;
 import iosifcostin.MathArena.dto.PictureDto;
@@ -36,10 +37,9 @@ public class ProfController {
 
     private final OAuth2AuthorizedClientService authorizedClientService;
     private UserService userService;
-    private S3Services s3Services;
+    private S3ServicesImpl s3Services;
 
-    @Autowired
-    public ProfController(OAuth2AuthorizedClientService authorizedClientService, UserService userService, S3Services s3Services) {
+    public ProfController(OAuth2AuthorizedClientService authorizedClientService, UserService userService, S3ServicesImpl s3Services) {
         this.authorizedClientService = authorizedClientService;
         this.userService = userService;
         this.s3Services = s3Services;
