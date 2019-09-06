@@ -190,7 +190,8 @@ public class ProfController {
 
     private void uploadBufferedImageToServer(BufferedImage image, String fileName, String imageType, String oldPicture) {
 
-         final String bucketName = "matharena";
+//         final String bucketName = "matharena";
+        String bucketName = System.getenv("S3_BUCKET_NAME");
 
         if (oldPicture != null) {
             s3client.deleteObject(bucketName,oldPicture.replace("https://matharena.s3.eu-central-1.amazonaws.com/",""));
