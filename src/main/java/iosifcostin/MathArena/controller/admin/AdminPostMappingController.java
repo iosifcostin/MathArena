@@ -235,6 +235,7 @@ public class AdminPostMappingController {
     private void uploadBufferedImageToServer(BufferedImage image, String fileName, String imageType, String oldPicture) {
 
 //         final String bucketName = "matharena";
+        // for heroku
          String bucketName = System.getenv("S3_BUCKET_NAME");
 
         if (oldPicture != null) {
