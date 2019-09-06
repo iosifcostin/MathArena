@@ -1,15 +1,16 @@
 package iosifcostin.MathArena.controller.user;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 import iosifcostin.MathArena.Service.CropImage;
-import iosifcostin.MathArena.Service.MathProblemService;
-import iosifcostin.MathArena.Service.RoleService;
-import iosifcostin.MathArena.Service.S3Service.S3Services;
-import iosifcostin.MathArena.Service.S3Service.S3ServicesImpl;
+
 import iosifcostin.MathArena.Service.UserService;
 import iosifcostin.MathArena.StaticVars.StaticVars;
 import iosifcostin.MathArena.dto.PictureDto;
 import iosifcostin.MathArena.model.Role;
 import iosifcostin.MathArena.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -24,11 +25,16 @@ import org.springframework.web.reactive.function.client.ClientRequest;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 @Controller
@@ -37,12 +43,15 @@ public class ProfController {
 
     private final OAuth2AuthorizedClientService authorizedClientService;
     private UserService userService;
-    private S3ServicesImpl s3Services;
+    private AmazonS3 s3client;
 
-    public ProfController(OAuth2AuthorizedClientService authorizedClientService, UserService userService, S3ServicesImpl s3Services) {
+    @Value("${jsa.s3.bucket}")
+    private String bucketName;
+
+    public ProfController(OAuth2AuthorizedClientService authorizedClientService, UserService userService, AmazonS3 s3client) {
         this.authorizedClientService = authorizedClientService;
         this.userService = userService;
-        this.s3Services = s3Services;
+        this.s3client = s3client;
     }
 
     @GetMapping("/profile")
@@ -118,7 +127,7 @@ public class ProfController {
 
         try {
             squareImage = cropImage.cropImageSquare(file.getBytes());
-            s3Services.uploadBufferedImageToServer(squareImage, pictureName, "png", user.getProfilePicturePath());
+            uploadBufferedImageToServer(squareImage, pictureName, "png", user.getProfilePicturePath());
 
 
         } catch (IOException e) {
@@ -178,5 +187,25 @@ public class ProfController {
                             .build();
                     return Mono.just(authorizedRequest);
                 });
+    }
+
+    private void uploadBufferedImageToServer(BufferedImage image, String fileName, String imageType, String oldPicture) {
+        if (oldPicture != null) {
+            s3client.deleteObject(bucketName,oldPicture.replace("https://matharena.s3.eu-central-1.amazonaws.com/",""));
+        }
+
+        ByteArrayOutputStream outstream = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(image, "png", outstream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        byte[] buffer = outstream.toByteArray();
+        InputStream is = new ByteArrayInputStream(buffer);
+        ObjectMetadata meta = new ObjectMetadata();
+        meta.setContentType("image/" + imageType);
+        meta.setContentLength(buffer.length);
+
+        s3client.putObject(new PutObjectRequest(bucketName, fileName, is, meta).withCannedAcl(CannedAccessControlList.PublicRead));
     }
 }
