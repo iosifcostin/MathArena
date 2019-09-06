@@ -86,6 +86,7 @@ public class UserService {
             "cache.byFirstNameContaining","cache.byLastNameContaining","cache.userById"}, allEntries = true)
     public void setProfilePicture (Long id ,String path){userRepository.setProfilePicture(id,path);}
 
+
     @Transactional
     @CacheEvict(value = {"cache.allUsers"
 //            , "cache.allProblemsPageable"
@@ -93,6 +94,15 @@ public class UserService {
             "cache.byEmailContaining","cache.byFirstNameContaining","cache.byLastNameContaining","cache.userById"}, allEntries = true)
     public void save(User user) {
         userRepository.save(user);
+    }
+
+
+    @CacheEvict(value = {"cache.allUsers"
+//            , "cache.allProblemsPageable"
+            ,"cache.allUsersPageable","cache.byEmailContaining",
+            "cache.byEmailContaining","cache.byFirstNameContaining","cache.byLastNameContaining","cache.userById"}, allEntries = true)
+    public void setProblems(User user) {
+        userRepository.setProblems(user);
     }
 
 

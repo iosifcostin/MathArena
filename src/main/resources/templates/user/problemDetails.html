@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head >
     <title>MathArena</title>
     <link rel="stylesheet" th:href="@{/userAssets/css/bootstrap.min.css}">
@@ -34,12 +36,17 @@
 
         </div>
         <div class=".col-xs-6 col-lg-6 col-xl-6 tm-block-col ">
-            <div th:if="${problemSolved}">
+            <div  th:if="${problemSolved}">
                 <h1 class="tm-block-title" style="color:green ">Resultat</h1>
                 <img th:src="${mathProblem.getResultPath()}"
                      alt="img">
             </div>
-            <div th:if="${!problemSolved}">
+            <div  sec:authorize="hasRole('ROLE_ADMIN')">
+                <h1 class="tm-block-title" style="color:green ">Resultat</h1>
+                <img th:src="${mathProblem.getResultPath()}"
+                     alt="img">
+            </div>
+            <div sec:authorize="!hasRole('ROLE_ADMIN')" th:if="${!problemSolved}">
                 <h2 class="tm-block-title" style="color:green ">Raspunde</h2>
 
                 <div class="form-group">

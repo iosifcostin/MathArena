@@ -2,6 +2,8 @@ package iosifcostin.MathArena.mathMl;
 
 import fmath.ApplicationConfiguration;
 import fmath.components.MathMLFormula;
+import iosifcostin.MathArena.Service.MathProblemService;
+import iosifcostin.MathArena.model.MathProblem;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -13,6 +15,7 @@ public class MathMlToPng {
 
     private static String folderFonts = "fonts";
     private static String folderGlyphs = "glyphs";
+
 
     public void convertMathMl(String descriptionFileName, String resultFileName, String matmlDescription, String matmlResult) {
 
@@ -33,12 +36,12 @@ public class MathMlToPng {
             File result = new File(folderGeneratedImage + resultFileName);
             ImageIO.write(imgResult, "png", result);
 
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 
     }
-
 
 }

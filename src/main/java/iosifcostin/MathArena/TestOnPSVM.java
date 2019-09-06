@@ -12,10 +12,10 @@ public class TestOnPSVM {
 
     public static void main(String[] args) {
 
-       Long x = 12L;
-       Long y =13L;
-       double m = 2;
+      String x = "https://matharena.s3.eu-central-1.amazonaws.com/";
 
-        System.out.println((x*y) / m);
+      String m = x.replace("https://matharena.s3.eu-central-1.", "");
+
+        System.out.println(m);
     }
 }

@@ -152,4 +152,5 @@ public class User {
     public void setPercentDto(double percentDto) {
         this.percentDto = percentDto;
     }
+
 }

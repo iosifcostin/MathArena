@@ -37,7 +37,6 @@ public class EditRemoveController {
         MathProblem mathProblem = mathProblemService.findById(id);
 
         model.addAttribute("description", mathProblem.getDescription());
-//        model.addAttribute("result", mathProblem.getResult());
         model.addAttribute("editForm", true);
         model.addAttribute("editId", mathProblem.getId());
         model.addAttribute("mathProblem", mathProblem);

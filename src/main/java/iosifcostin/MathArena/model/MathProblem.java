@@ -24,13 +24,11 @@ public class MathProblem {
 
     private String descriptionPath;
 
-
     @Column(nullable = false)
     @ValidMathMlFormat
     private String result;
 
     private String resultPath;
-
 
     @Transient
     private boolean problemSolved;
@@ -135,6 +133,5 @@ public class MathProblem {
     public void setUsers(Set<User> users) {
         this.users = users;
     }
-
 
 }

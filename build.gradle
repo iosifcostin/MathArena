@@ -47,5 +47,7 @@ dependencies {
 	compile group: 'org.modelmapper', name: 'modelmapper', version: '0.7.5'
 	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
 //	compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-alpha-2'
+	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.624'
+
 
 }

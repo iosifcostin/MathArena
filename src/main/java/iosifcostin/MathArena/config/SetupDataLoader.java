@@ -14,7 +14,9 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -63,10 +65,10 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         //================================================================================
         createUserIfNotFound("admin@gmail.com", "MathArena", "Admin", "admin", rootRoles);
 
-        for (int i = 1; i < 4; i++) {
-            createUserIfNotFound("user" + i + "@gmail.com", "fName" + i, "lName" + i,
-                    "user" + i, userRoles);
-        }
+
+            createUserIfNotFound("user" + "@gmail.com", "firstName" , "lastName" ,
+                    "user" , userRoles);
+
         //================================================================================
         //endregion
 
@@ -102,5 +104,6 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
             userService.save(user);
         }
     }
+
 
 }

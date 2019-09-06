@@ -1,6 +1,8 @@
 package iosifcostin.MathArena.controller.admin;
 
+import fmath.ApplicationConfiguration;
 import fmath.components.MathMLFormula;
+import iosifcostin.MathArena.Service.S3Service.S3Services;
 import iosifcostin.MathArena.mathMl.MathMlToPng;
 import iosifcostin.MathArena.model.Category;
 import iosifcostin.MathArena.model.MathProblem;
@@ -36,25 +38,21 @@ public class AdminPostMappingController {
     private MathProblemService mathProblemService;
     private CategoryService categoryService;
     private ProblemClassService problemClassService;
-    private MathMlToPng mathMlToPng;
+    private S3Services s3Services;
 
-    public AdminPostMappingController(UserService userService, MathProblemService mathProblemService, CategoryService categoryService, ProblemClassService problemClassService, MathMlToPng mathMlToPng) {
+    public AdminPostMappingController(UserService userService, MathProblemService mathProblemService, CategoryService categoryService, ProblemClassService problemClassService, S3Services s3Services) {
         this.userService = userService;
         this.mathProblemService = mathProblemService;
         this.categoryService = categoryService;
         this.problemClassService = problemClassService;
-        this.mathMlToPng = mathMlToPng;
+        this.s3Services = s3Services;
     }
 
-    @PostMapping(value = "/saveProblem" , params = "action=save")
+    @PostMapping(value = "/saveProblem", params = "action=save")
     public ModelAndView saveProblem(ModelAndView modelAndView, Model model,
-                                 @ModelAttribute("mathProblem") @Valid final MathProblem mathProblem,
-                                 BindingResult bindingResult, HttpSession session,
-                                 HttpServletRequest request, Errors errors) {
-
-        String descriptionFileName = "problem" + System.currentTimeMillis()+".png";
-        String resultFileName = "result" + System.currentTimeMillis()+".png";
-
+                                    @ModelAttribute("mathProblem") @Valid final MathProblem mathProblem,
+                                    BindingResult bindingResult, HttpSession session,
+                                    HttpServletRequest request, Errors errors) {
         model.addAttribute("categories", categoryService.findAll());
         model.addAttribute("classes", problemClassService.findAll());
 
@@ -72,11 +70,7 @@ public class AdminPostMappingController {
             model.addAttribute("description", mathProblem.getDescription());
             modelAndView.setViewName("admin/addProblem");
         } else {
-            mathProblem.setDatePosted(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()));
-            mathMlToPng.convertMathMl(descriptionFileName,resultFileName,mathProblem.getDescription(),mathProblem.getResult());
-            mathProblem.setDescriptionPath("/problemsImages/" + descriptionFileName);
-            mathProblem.setResultPath("/problemsImages/" + resultFileName);
-            mathProblemService.save(mathProblem);
+            convertMathAndStoreOnAwsS3(mathProblem,null, true);
 
             session.setAttribute("problemSaved", "Problem Saved");
 
@@ -86,14 +80,12 @@ public class AdminPostMappingController {
 
         return modelAndView;
     }
-    @PostMapping(value = "/saveProblem" , params = "action=edit")
+
+    @PostMapping(value = "/saveProblem", params = "action=edit")
     public ModelAndView editProblem(ModelAndView modelAndView, Model model,
                                     @ModelAttribute("mathProblem") @Valid final MathProblem mathProblem,
                                     BindingResult bindingResult, HttpSession session,
                                     HttpServletRequest request, Errors errors) {
-
-        String descriptionFileName = "problem" + System.currentTimeMillis()+".png";
-        String resultFileName = "result" + System.currentTimeMillis()+".png";
 
         MathProblem nameExist = mathProblemService.findByName(mathProblem.getName());
         model.addAttribute("categories", categoryService.findAll());
@@ -112,13 +104,7 @@ public class AdminPostMappingController {
             modelAndView.setViewName("admin/addProblem");
         } else {
 
-            mathProblem.setDatePosted(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()));
-            mathMlToPng.convertMathMl(descriptionFileName,resultFileName,mathProblem.getDescription(),mathProblem.getResult());
-            mathProblem.setDescriptionPath("/problemsImages/" + descriptionFileName);
-            mathProblem.setResultPath("/problemsImages/" + resultFileName);
-
-            mathProblemService.edit(mathProblem, (Long) session.getAttribute("initialId"));
-
+            convertMathAndStoreOnAwsS3(mathProblem, (Long) session.getAttribute("InitialId"), false);
             session.setAttribute("problemEdited", "Problem Edited");
 
             modelAndView.setViewName("redirect:/admin/problems");
@@ -126,6 +112,7 @@ public class AdminPostMappingController {
 
         return modelAndView;
     }
+
     @PostMapping(value = "/saveCategory", params = "action=save")
     public ModelAndView saveCategory(ModelAndView modelAndView,
                                      @ModelAttribute("category") @Valid final Category category,
@@ -185,9 +172,9 @@ public class AdminPostMappingController {
 
     @PostMapping(value = "/saveClass", params = "action=save")
     public ModelAndView saveClass(ModelAndView modelAndView,
-                                     @ModelAttribute("problemClass") @Valid final ProblemClass problemClass,
-                                     BindingResult bindingResult, HttpSession session,
-                                     HttpServletRequest request, Errors errors) {
+                                  @ModelAttribute("problemClass") @Valid final ProblemClass problemClass,
+                                  BindingResult bindingResult, HttpSession session,
+                                  HttpServletRequest request, Errors errors) {
 
         ProblemClass nameExist = problemClassService.findByName(problemClass.getProblemClassName());
 
@@ -210,6 +197,7 @@ public class AdminPostMappingController {
 
         return modelAndView;
     }
+
     @PostMapping(value = "/saveClass", params = "action=edit")
     public ModelAndView editClass(ModelAndView modelAndView,
                                   @ModelAttribute("problemClass") @Valid final ProblemClass problemClass,
@@ -236,5 +224,34 @@ public class AdminPostMappingController {
         }
 
         return modelAndView;
+    }
+
+    private void convertMathAndStoreOnAwsS3(MathProblem mathProblem,Long id, boolean save) {
+        String descriptionFileName = "problem" + System.currentTimeMillis() + ".png";
+        String resultFileName = "result" + System.currentTimeMillis() + ".png";
+
+        String folderFonts = "fonts";
+        String folderGlyphs = "glyphs";
+
+        ApplicationConfiguration.setFolderUrlForFonts(folderFonts);
+        ApplicationConfiguration.setFolderUrlForGlyphs(folderGlyphs);
+        ApplicationConfiguration.setWebApp(false);
+
+        MathMLFormula formula = new MathMLFormula();
+        BufferedImage imgDescription = formula.drawImage(mathProblem.getDescription());
+        BufferedImage imgResult = formula.drawImage(mathProblem.getResult());
+
+        s3Services.uploadBufferedImageToServer(imgDescription, descriptionFileName, "png", mathProblem.getDescriptionPath());
+        s3Services.uploadBufferedImageToServer(imgResult, resultFileName, "png", mathProblem.getResultPath());
+
+        mathProblem.setDatePosted(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()));
+        mathProblem.setDescriptionPath("https://matharena.s3.eu-central-1.amazonaws.com/" + descriptionFileName);
+        mathProblem.setResultPath("https://matharena.s3.eu-central-1.amazonaws.com/" + resultFileName);
+
+        if (save)
+        mathProblemService.save(mathProblem);
+        else
+        mathProblemService.edit(mathProblem, id);
+
     }
 }

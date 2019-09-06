@@ -74,12 +74,11 @@ public class WebsiteNavController {
         List<User> users = userService.findAll();
         Map<User, Integer> topUsers = new HashMap<>();
         users.forEach(user -> {
-
-            user.setPercentDto((user.getMathProblems().size() * 100d) / StaticVars.problemsSize);
-            topUsers.put(user, user.getMathProblems().size());
+            if (user.getMathProblems().size() > 0) {
+                user.setPercentDto((user.getMathProblems().size() * 100d) / StaticVars.problemsSize);
+                topUsers.put(user, user.getMathProblems().size());
+            }
         });
-
-
 
         final Map<User, Integer> sortedByValues = topUsers.entrySet()
                 .stream()
@@ -87,7 +86,7 @@ public class WebsiteNavController {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
 
-        model.addAttribute("problemsSize", StaticVars.problemsSize );
+        model.addAttribute("problemsSize", StaticVars.problemsSize);
         model.addAttribute("topUsers", sortedByValues);
         model.addAttribute("top", true);
         return "top";

@@ -73,6 +73,7 @@ public class RegisterController {
 
             user.setEnabled(true);
             user.setRoles(Collections.singletonList(roleService.findByName("ROLE_USER")));
+            String password = user.getPassword();
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             userService.save(user);
 
@@ -89,7 +90,7 @@ public class RegisterController {
             session.setAttribute("emailMessage", "Un email de confirmare a fost trimis la "
                     + user.getEmail());
 
-            request.login(user.getEmail(), user.getPassword());
+            request.login(user.getEmail(), password);
 
             modelAndView.setViewName("redirect:/user/profile");
         }

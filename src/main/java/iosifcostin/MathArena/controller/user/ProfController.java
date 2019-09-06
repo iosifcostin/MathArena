@@ -1,8 +1,10 @@
 package iosifcostin.MathArena.controller.user;
 
+import com.amazonaws.services.clouddirectory.model.DeleteObjectRequest;
 import iosifcostin.MathArena.Service.CropImage;
 import iosifcostin.MathArena.Service.MathProblemService;
 import iosifcostin.MathArena.Service.RoleService;
+import iosifcostin.MathArena.Service.S3Service.S3Services;
 import iosifcostin.MathArena.Service.UserService;
 import iosifcostin.MathArena.StaticVars.StaticVars;
 import iosifcostin.MathArena.controller.website.WebsiteNavController;
@@ -10,6 +12,11 @@ import iosifcostin.MathArena.dto.PictureDto;
 import iosifcostin.MathArena.model.MathProblem;
 import iosifcostin.MathArena.model.Role;
 import iosifcostin.MathArena.model.User;
+import iosifcostin.MathArena.paging.InitialPagingSizes;
+import iosifcostin.MathArena.paging.Pager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -43,16 +50,21 @@ public class ProfController {
     private final OAuth2AuthorizedClientService authorizedClientService;
     private UserService userService;
     private MathProblemService mathProblemService;
-    RoleService roleService;
+    private RoleService roleService;
+    private S3Services s3Services;
 
-    public ProfController(OAuth2AuthorizedClientService authorizedClientService, UserService userService, MathProblemService mathProblemService) {
+    @Autowired
+    public ProfController(OAuth2AuthorizedClientService authorizedClientService, UserService userService, MathProblemService mathProblemService, RoleService roleService, S3Services s3Services) {
         this.authorizedClientService = authorizedClientService;
         this.userService = userService;
         this.mathProblemService = mathProblemService;
+        this.roleService = roleService;
+        this.s3Services = s3Services;
     }
 
     @GetMapping("/profile")
-    public String userIndex(Model model, Authentication authentication, HttpSession session) {
+    public String userIndex( Model model, Authentication authentication, HttpSession session) {
+
 
         User user = userService.findByEmail(authentication.getName());
         user.setPercentDto((user.getMathProblems().size() * 100d) / StaticVars.problemsSize);
@@ -60,8 +72,9 @@ public class ProfController {
         if (user.getMathProblems().size() != 0)
             model.addAttribute("userSolvedProblems", user.getMathProblems());
 
-        model.addAttribute("problemsSize", StaticVars.problemsSize );
+
         model.addAttribute("picture", user.getProfilePicturePath());
+        model.addAttribute("problemsSize", StaticVars.problemsSize);
         model.addAttribute("user", user);
         model.addAttribute("profile", true);
         session.setAttribute("userType", "normalUser");
@@ -76,7 +89,7 @@ public class ProfController {
         User user = userService.findByGoogleAuthId(auth.getName());
 
         if (user != null)
-        user.setPercentDto((user.getMathProblems().size() * 100d) / StaticVars.problemsSize);
+            user.setPercentDto((user.getMathProblems().size() * 100d) / StaticVars.problemsSize);
 
         if (user == null) {
             user = userAttributes(auth);
@@ -90,13 +103,14 @@ public class ProfController {
         if (user.getMathProblems().size() != 0)
             model.addAttribute("userSolvedProblems", user.getMathProblems());
 
-        model.addAttribute("name", auth.getName());
+
         model.addAttribute("picture", user.getProfilePicturePath());
-        model.addAttribute("problemsSize", StaticVars.problemsSize );
+        model.addAttribute("name", auth.getName());
+        model.addAttribute("problemsSize", StaticVars.problemsSize);
         model.addAttribute("profile", true);
         session.setAttribute("userType", "googleUser");
         model.addAttribute("picUpload", new PictureDto());
-        model.addAttribute("user" , user);
+        model.addAttribute("user", user);
 
         return "user/profile";
     }
@@ -108,8 +122,7 @@ public class ProfController {
                                       HttpServletRequest request,
                                       Authentication authentication) {
 
-        String folderGeneratedImage = "src/main/resources/static/images/";
-        String pictureName = "img" + System.currentTimeMillis()+".png";
+        String pictureName = "img" + System.currentTimeMillis() + ".png";
 
         User user = new User();
         if (session.getAttribute("userType") == "normalUser")
@@ -122,14 +135,14 @@ public class ProfController {
 
         try {
             squareImage = cropImage.cropImageSquare(file.getBytes());
-            File newFile = new File(folderGeneratedImage + pictureName);
-            ImageIO.write(squareImage, "png", newFile);
+            s3Services.uploadBufferedImageToServer(squareImage, pictureName, "png", user.getProfilePicturePath());
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        userService.setProfilePicture(user.getId(),"/images/" + pictureName);
 
+        userService.setProfilePicture(user.getId(), "https://matharena.s3.eu-central-1.amazonaws.com/" + pictureName);
 
         if (session.getAttribute("userType") == "normalUser")
             return "redirect:/user/profile";

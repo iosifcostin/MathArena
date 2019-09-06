@@ -84,13 +84,28 @@
                                                      alt="img">
                                             </div>
                                         </div>
-                                        <div th:if="${!mp.isProblemSolved()}" class="modal-footer" >
+                                        <div sec:authorize="hasRole('ROLE_ADMIN')">
+                                            <div class="modal-header">
+                                                <h3  class="modal-title" style="color: #1629e7">Rezultat</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img th:src="${mp.getResultPath()}"
+                                                     alt="img">
+                                            </div>
+                                        </div>
+                                        <div sec:authorize="!hasRole('ROLE_ADMIN')" th:if="${!mp.isProblemSolved()}" class="modal-footer" >
                                             <a class="btn btn-info" th:href="@{|/user/problemDetails/${mp.getId()}|}">Raspunde</a>
                                             <button class="btn btn-secondary" type="button" data-dismiss="modal">
                                                 Inchide
                                             </button>
                                         </div>
                                         <div th:if="${mp.isProblemSolved()}" class="modal-footer">
+                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                                                Inchide
+                                            </button>
+                                        </div>
+                                        <div sec:authorize="hasRole('ROLE_ADMIN')"  class="modal-footer" >
+                                            <a class="btn btn-info" th:href="@{|/user/problemDetails/${mp.getId()}|}">Detalii</a>
                                             <button class="btn btn-secondary" type="button" data-dismiss="modal">
                                                 Inchide
                                             </button>

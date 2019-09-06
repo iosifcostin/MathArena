@@ -53,49 +53,64 @@
                             <p th:text="${user.getMathProblems().size() + ' din ' + problemsSize}"
                                style="color: orangered"></p>
                         </div>
-                        <ol>
-                            <li th:each="mp : ${userSolvedProblems}" style="color: white" th:text="${'p' + mp.getId() + ' - ' +mp.getName()}"
-                                th:id="${mp.getId()}" onclick="openProblemModal(this.id)">
-                                <div class="modal fade" th:id="'modal' + ${mp.getId()}" tabindex="-1" role="dialog"
-                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content" style="width: 120%">
-                                            <div class="modal-header">
-                                                <h3  class="modal-title" th:text="${mp.getName()}" style="color: #1629e7"></h3>
-                                                <button class="close" type="button" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img th:src="'data:image/png;base64,' + ${mp.getDescriptionDto()}"
-                                                     alt="img">
-                                            </div>
-                                            <div th:if="${mp.getProblemSolved()}">
+                        <br><br><br>
+                        <div class="tm-product-table-container">
+                            <table id="problemsTable" class="table table-hover tm-table-small tm-product-table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th  scope="col">Clasa</th>
+                                    <th  scope="col">Categoria</th>
+                                    <th  scope="col">Nume</th>
+                                    <th  scope="col">Data postarii</th>
+                                    <th scope="col">Rezolvata de</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tBody">
+                                <tr th:each="mp : ${userSolvedProblems}" th:id="${mp.getId()}">
+                                    <td th:text="${mp.getId()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+                                    <td th:text="${mp.getProblemClass().getProblemClassName()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+                                    <td th:text="${mp.getCategory().getCategoryName()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+                                    <td th:text="${mp.getName()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+                                    <td th:text="${mp.getDatePosted()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+                                    <td th:text="${mp.getUsers().size()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
+
+                                    <div class="modal fade" th:id="'modal' +${mp.getId()} " tabindex="-1" role="dialog"
+                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content" style="width: 120%">
                                                 <div class="modal-header">
-                                                    <h3  class="modal-title" style="color: #1629e7">Rezultat</h3>
+                                                    <h3 th:text="${mp.getName()}" class="modal-title" style="color: #1629e7"></h3>
+                                                    <button class="close" type="button" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img th:src="'data:image/png;base64,' + ${mp.getResultDto()}"
+                                                    <img th:src="${mp.getDescriptionPath()}"
                                                          alt="img">
                                                 </div>
-                                            </div>
-                                            <div th:if="${!mp.getProblemSolved()}" class="modal-footer">
-                                                <a class="btn btn-info" th:href="@{|/user/problemDetails/${mp.getId()}|}">Raspunde</a>
-                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">
-                                                    Inchide
-                                                </button>
-                                            </div>
-                                            <div th:if="${mp.getProblemSolved()}" class="modal-footer">
-                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">
-                                                    Inchide
-                                                </button>
+                                                <div >
+                                                    <div class="modal-header">
+                                                        <h3  class="modal-title" style="color: #1629e7">Rezultat</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <img th:src="${mp.getResultPath()}"
+                                                             alt="img">
+                                                    </div>
+                                                </div>
+                                                <div  class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                                                        Inchide
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                        </ol>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -132,7 +147,6 @@
         var emailMessage = /*[[${emailMessage}]]*/ 'default';
         var welcome = /*[[${welcome}]]*/ 'default';
         var userType = /*[[${session.userType}]]*/ 'default';
-        var imageSource = /*[[${picture}]]*/ 'default';
 
         window.onload = function (ev) {
 
@@ -145,7 +159,6 @@
                     }, 3000);
                 }
         };
-
 
         function openProblemModal(id) {
             $('#modal' + id).modal('show')

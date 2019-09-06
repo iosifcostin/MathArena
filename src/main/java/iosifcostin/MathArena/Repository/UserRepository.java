@@ -30,14 +30,24 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Page<User> findByLastNameContainingOrderByIdAsc(String username, Pageable pageable);
 
-
-
-
+    @Transactional
+    @Modifying
+    @Query("UPDATE User u SET u.mathProblems = :#{#user.mathProblems}, " +
+            "u.profilePicturePath  = :#{#user.profilePicturePath}," +
+            "u.email = :#{#user.email}," +
+            "u.enabled = :#{#user.enabled}," +
+            "u.firstName = :#{#user.firstName}, " +
+            "u.lastName = :#{#user.lastName}," +
+            "u.googleAuthId = :#{#user.googleAuthId}," +
+            "u.password = :#{#user.password}," +
+            "u.roles = :#{#user.roles} WHERE u.id = :#{#user.id}")
+    void setProblems(@Param("user") User user);
 
     @Transactional
     @Modifying
     @Query("UPDATE User u SET u.profilePicturePath = :#{#path} WHERE u.id = :#{#id}")
     void setProfilePicture(@Param("id") Long id, @Param("path") String path);
+
 
     //region Find eagerly
     //==========================================================================
