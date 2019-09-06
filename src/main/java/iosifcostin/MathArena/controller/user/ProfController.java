@@ -1,22 +1,14 @@
 package iosifcostin.MathArena.controller.user;
-
-import com.amazonaws.services.clouddirectory.model.DeleteObjectRequest;
 import iosifcostin.MathArena.Service.CropImage;
 import iosifcostin.MathArena.Service.MathProblemService;
 import iosifcostin.MathArena.Service.RoleService;
 import iosifcostin.MathArena.Service.S3Service.S3Services;
 import iosifcostin.MathArena.Service.UserService;
 import iosifcostin.MathArena.StaticVars.StaticVars;
-import iosifcostin.MathArena.controller.website.WebsiteNavController;
 import iosifcostin.MathArena.dto.PictureDto;
-import iosifcostin.MathArena.model.MathProblem;
 import iosifcostin.MathArena.model.Role;
 import iosifcostin.MathArena.model.User;
-import iosifcostin.MathArena.paging.InitialPagingSizes;
-import iosifcostin.MathArena.paging.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -31,16 +23,11 @@ import org.springframework.web.reactive.function.client.ClientRequest;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
-import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
@@ -49,16 +36,12 @@ public class ProfController {
 
     private final OAuth2AuthorizedClientService authorizedClientService;
     private UserService userService;
-    private MathProblemService mathProblemService;
-    private RoleService roleService;
     private S3Services s3Services;
 
     @Autowired
-    public ProfController(OAuth2AuthorizedClientService authorizedClientService, UserService userService, MathProblemService mathProblemService, RoleService roleService, S3Services s3Services) {
+    public ProfController(OAuth2AuthorizedClientService authorizedClientService, UserService userService, S3Services s3Services) {
         this.authorizedClientService = authorizedClientService;
         this.userService = userService;
-        this.mathProblemService = mathProblemService;
-        this.roleService = roleService;
         this.s3Services = s3Services;
     }
 

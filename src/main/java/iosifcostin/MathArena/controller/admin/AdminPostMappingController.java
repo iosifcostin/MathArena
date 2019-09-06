@@ -11,6 +11,7 @@ import iosifcostin.MathArena.Service.CategoryService;
 import iosifcostin.MathArena.Service.MathProblemService;
 import iosifcostin.MathArena.Service.ProblemClassService;
 import iosifcostin.MathArena.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -40,6 +41,7 @@ public class AdminPostMappingController {
     private ProblemClassService problemClassService;
     private S3Services s3Services;
 
+    @Autowired
     public AdminPostMappingController(UserService userService, MathProblemService mathProblemService, CategoryService categoryService, ProblemClassService problemClassService, S3Services s3Services) {
         this.userService = userService;
         this.mathProblemService = mathProblemService;
