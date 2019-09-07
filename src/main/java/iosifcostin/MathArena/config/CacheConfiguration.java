@@ -15,10 +15,12 @@ public class CacheConfiguration {
     public CacheManager cacheManager() {
         return new ConcurrentMapCacheManager(
 //                "cache.allProblemsPageable",
-                "cache.allProblems", "cache.allUsers",
+//                "cache.allProblems",
+                "cache.allUsers",
                 "cache.allProblemClasses",
 //                "cache.allProblemsPageable",
-                "cache.allCategories", "cache.MathProblemById",
+                "cache.allCategories",
+//                "cache.MathProblemById",
                 "cache.allUsersPageable",
                 "cache.byEmailContaining",
                 "cache.byFirstNameContaining", "cache.byLastNameContaining",

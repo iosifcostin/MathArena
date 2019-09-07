@@ -27,7 +27,7 @@
                 Inainte
             </a></li>
     </ul>
-    <h3 th:if="${problemSolved}" style="color: #e77518">Ati rezolvat aceasta problema</h3>
+    <h3 th:if="${problemSolved == true}" style="color: #e77518">Ati rezolvat aceasta problema</h3>
     <div class="row tm-content-row" th:if="${mathProblem != null}">
         <div class=".col-xs-6 col-lg-6 col-xl-6 tm-block-col ">
             <h1 class="tm-block-title" th:text="${mathProblem.getName()}" style="color:green "></h1>
@@ -36,7 +36,7 @@
 
         </div>
         <div class=".col-xs-6 col-lg-6 col-xl-6 tm-block-col ">
-            <div  th:if="${problemSolved}">
+            <div th:if="${problemSolved == true}">
                 <h1 class="tm-block-title" style="color:green ">Resultat</h1>
                 <img th:src="${mathProblem.getResultPath()}"
                      alt="img">
@@ -46,7 +46,7 @@
                 <img th:src="${mathProblem.getResultPath()}"
                      alt="img">
             </div>
-            <div sec:authorize="!hasRole('ROLE_ADMIN')" th:if="${!problemSolved}">
+            <div sec:authorize="!hasRole('ROLE_ADMIN')" th:if="${problemSolved == false}">
                 <h2 class="tm-block-title" style="color:green ">Raspunde</h2>
 
                 <div class="form-group">

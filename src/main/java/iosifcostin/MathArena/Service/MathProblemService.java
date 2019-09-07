@@ -33,7 +33,7 @@ public class MathProblemService {
         return mathProblemRepo.findAll(pageable);
     }
 
-    @Cacheable(value = "cache.allProblems")
+//    @Cacheable(value = "cache.allProblems")
     public List<MathProblem> findAll() {
         return mathProblemRepo.findAll();
     }
@@ -49,28 +49,28 @@ public class MathProblemService {
     }
 
 
-    @Cacheable(value = "cache.MathProblemById")
+//    @Cacheable(value = "cache.MathProblemById")
     public MathProblem findById(Long id) {
         return mathProblemRepo.findBygivenId(id);
     }
 
-    @CacheEvict(value = {"cache.allProblems"
-//            ,"cache.allProblemsPageable"
-            ,"cache.MathProblemById"}, allEntries = true)
+//    @CacheEvict(value = {"cache.allProblems"
+////            ,"cache.allProblemsPageable"
+//            ,"cache.MathProblemById"}, allEntries = true)
     public void save(MathProblem problem) {
         mathProblemRepo.save(problem);
     }
 
-    @CacheEvict(value = {"cache.allProblems"
-//            ,"cache.allProblemsPageable"
-            ,"cache.MathProblemById"}, allEntries = true)
+//    @CacheEvict(value = {"cache.allProblems"
+////            ,"cache.allProblemsPageable"
+//            ,"cache.MathProblemById"}, allEntries = true)
     public void edit(MathProblem mathProblem, Long id) {
         mathProblemRepo.problemUpdate(mathProblem, id);
     }
 
-    @CacheEvict(value = {"cache.allProblems"
-//            , "cache.allProblemsPageable"
-            ,"cache.MathProblemById"}, allEntries = true)
+//    @CacheEvict(value = {"cache.allProblems"
+////            , "cache.allProblemsPageable"
+//            ,"cache.MathProblemById"}, allEntries = true)
     public void deleteById(Long id) {
         mathProblemRepo.deleteById(id);
     }
