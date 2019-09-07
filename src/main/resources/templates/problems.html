@@ -14,7 +14,7 @@
 <div class="container mt-5">
     <div class="row tm-content-row">
         <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9 tm-block-col">
-            <div class="tm-bg-primary-dark tm-block tm-block-products">
+<!--            <div class="tm-bg-primary-dark tm-block tm-block-products">-->
                 <!--Search user-->
                 <div class="row col-lg-12 d-flex flex-nowrap pb-2">
                     <div class="input-group">
@@ -32,7 +32,7 @@
 
                 <div class="tm-product-table-container">
 
-                    <table id="problemsTable" class="table table-hover tm-table-small tm-product-table">
+                    <table id="problemsTable" class="table table-hover tm-table-small">
                         <thead>
                         <tr>
                             <th onclick="sortTable(0)" scope="col">Id</th>
@@ -44,7 +44,7 @@
                             <th sec:authorize="isAuthenticated()"></th>
                         </tr>
                         </thead>
-                        <tbody id="tBody">
+                        <tbody id="tBody" style="color: black">
                         <tr th:each="mp : ${problemsPage}" th:id="${mp.getId()}">
                             <td th:text="${mp.getId()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
                             <td th:text="${mp.getProblemClass().getProblemClassName()}" th:onclick="'openProblemModal(\'' + ${mp.getId()} + '\');'"></td>
@@ -235,7 +235,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+<!--            </div>-->
         </div>
     </div>
 </div>

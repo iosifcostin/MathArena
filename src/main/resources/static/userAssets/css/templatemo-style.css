@@ -410,7 +410,7 @@ thead {
   transition: all 0.2s ease;
 }
 .table-hover tbody tr:hover {
-  color: #de8885;
+  color: white;
 }
 .tm-bg-primary-dark {
   background-color: #435c70;
