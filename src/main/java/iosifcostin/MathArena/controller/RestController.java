@@ -22,18 +22,14 @@ import java.util.Optional;
 public class RestController {
 
     private MathProblemService mathProblemService;
-    private CategoryService categoryService;
-    private ProblemClassService problemClassService;
-    private MathMlToPng mathMlToPng;
+
     private UserService userService;
 
-    public RestController(MathProblemService mathProblemService, CategoryService categoryService, ProblemClassService problemClassService, MathMlToPng mathMlToPng, UserService userService) {
+    public RestController(MathProblemService mathProblemService, UserService userService) {
         this.mathProblemService = mathProblemService;
-        this.categoryService = categoryService;
-        this.problemClassService = problemClassService;
-        this.mathMlToPng = mathMlToPng;
         this.userService = userService;
     }
+
     @GetMapping("/getProblem")
     public ResponseEntity<MathProblem> getProblem(@RequestParam Long id) {
 
@@ -50,11 +46,11 @@ public class RestController {
         Boolean isValid = mathProblem.getResult().equals(answer);
 
         if (isValid) {
-            User user = new User();
-            if (session.getAttribute("userType") == "normalUser")
+            User user;
+            if (userService.isOauth(authentication))
+                user = userService.findByClientAuthId(authentication.getName());
+            else
                 user = userService.findByEmail(authentication.getName());
-            else if (session.getAttribute("userType") == "googleUser")
-                user = userService.findByGoogleAuthId(authentication.getName());
 
             List<MathProblem> problems = userService.getAssignedProblemsList(user);
             problems.add(mathProblem);

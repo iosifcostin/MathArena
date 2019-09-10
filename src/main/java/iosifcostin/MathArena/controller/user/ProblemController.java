@@ -36,12 +36,10 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class ProblemController {
 
-    private MathMlToPng mathMlToPng;
     private MathProblemService mathProblemService;
     private UserService userService;
 
-    public ProblemController(MathMlToPng mathMlToPng, MathProblemService mathProblemService, UserService userService) {
-        this.mathMlToPng = mathMlToPng;
+    public ProblemController(MathProblemService mathProblemService, UserService userService) {
         this.mathProblemService = mathProblemService;
         this.userService = userService;
     }
@@ -51,11 +49,11 @@ public class ProblemController {
 
         MathProblem mathProblem = mathProblemService.findById(id);
 
-        User user = new User();
-        if (session.getAttribute("userType") == "normalUser")
+        User user;
+        if (userService.isOauth(authentication))
+            user = userService.findByClientAuthId(authentication.getName());
+        else
             user = userService.findByEmail(authentication.getName());
-        else if (session.getAttribute("userType") == "googleUser")
-            user = userService.findByGoogleAuthId(authentication.getName());
 
         if (mathProblem != null) {
 

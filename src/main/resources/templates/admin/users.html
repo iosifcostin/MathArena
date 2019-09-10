@@ -59,6 +59,7 @@
                 <thead class="thead">
                 <tr>
                   <th onclick="sortTable(0)">ID</th>
+                  <th onclick="sortTable(2)">Name</th>
                   <th onclick="sortTable(2)">First Name</th>
                   <th onclick="sortTable(1)">Last Name</th>
                   <th onclick="sortTable(3)">Email</th>
@@ -69,6 +70,7 @@
                 <tbody id="user-table-body">
                 <tr th:each="user : ${users}">
                   <td th:text="${user.getId()}"></td>
+                  <td th:text="${user.getName()}"></td>
                   <td th:text="${user.getFirstName()}"></td>
                   <td th:text="${user.getLastName()}"></td>
                   <td th:text="${user.getEmail()}"></td>
@@ -78,13 +80,16 @@
                   </td>
 
                   <!--Edit user button-->
-                  <td><a th:if="${user.getGoogleAuthId() == null}"  style="text-decoration: none; color:blue"
+                  <td><a th:if="${user.getClientRegistrationId() == 'matharena'}" style="text-decoration: none; color:blue"
                          th:href="@{/admin/users/{id}(id=${user.id})}"
                          class="editBtn" data-toggle="tooltip"
                          data-placement="right" title="Edit user">
                     <i class="fa fa-edit"></i>
                   </a>
-                    <img th:if="${user.getGoogleAuthId()}" th:src="@{/images/icon-google.png}" style="width: 15px" alt="GOOGLE">
+                    <img th:if="${user.getClientRegistrationId() == 'google'}"
+                         th:src="@{/images/icon-google.png}" style="width: 15px" alt="GOOGLE">
+                    <img th:if="${user.getClientRegistrationId() == 'facebook'}"
+                         th:src="@{/images/facebook.jpg}" style="width: 15px; height: 15px" alt="facebook">
                   </td>
                 </tr>
                 </tbody>

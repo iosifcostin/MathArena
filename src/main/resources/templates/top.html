@@ -30,7 +30,9 @@
 
                                         </div>
                                         <div style="display: inline-block">
-                                            <h4 th:text="${t.getKey().getFirstName() + ' ' + t.getKey().getLastName()}"
+                                            <h4 th:if="${t.getKey().getFirstName()}" th:text="${t.getKey().getFirstName() + ' ' + t.getKey().getLastName()}"
+                                                style="color: white;"></h4>
+                                            <h4 th:if="${t.getKey().getName()}" th:text="${t.getKey().getName()}"
                                                 style="color: white;"></h4>
                                         </div>
                                     </div>

@@ -1,9 +1,5 @@
 package iosifcostin.MathArena.controller.admin;
 
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.CannedAccessControlList;
-import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.amazonaws.services.s3.model.PutObjectRequest;
 import fmath.ApplicationConfiguration;
 import fmath.components.MathMLFormula;
 import iosifcostin.MathArena.model.Category;
@@ -13,7 +9,6 @@ import iosifcostin.MathArena.Service.CategoryService;
 import iosifcostin.MathArena.Service.MathProblemService;
 import iosifcostin.MathArena.Service.ProblemClassService;
 import iosifcostin.MathArena.Service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,16 +17,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -43,15 +32,12 @@ public class AdminPostMappingController {
     private MathProblemService mathProblemService;
     private CategoryService categoryService;
     private ProblemClassService problemClassService;
-    private AmazonS3 s3client;
 
-    @Autowired
-    public AdminPostMappingController(UserService userService, MathProblemService mathProblemService, CategoryService categoryService, ProblemClassService problemClassService, AmazonS3 s3client) {
+    public AdminPostMappingController(UserService userService, MathProblemService mathProblemService, CategoryService categoryService, ProblemClassService problemClassService) {
         this.userService = userService;
         this.mathProblemService = mathProblemService;
         this.categoryService = categoryService;
         this.problemClassService = problemClassService;
-        this.s3client = s3client;
     }
 
     @PostMapping(value = "/saveProblem", params = "action=save")
@@ -232,31 +218,6 @@ public class AdminPostMappingController {
         return modelAndView;
     }
 
-    private void uploadBufferedImageToServer(BufferedImage image, String fileName, String imageType, String oldPicture) {
-
-         final String bucketName = "matharena";
-        // for heroku
-//         String bucketName = System.getenv("S3_BUCKET_NAME");
-
-        if (oldPicture != null) {
-            s3client.deleteObject(bucketName,oldPicture.replace("https://matharena.s3.eu-central-1.amazonaws.com/",""));
-        }
-
-        ByteArrayOutputStream outstream = new ByteArrayOutputStream();
-        try {
-            ImageIO.write(image, "png", outstream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        byte[] buffer = outstream.toByteArray();
-        InputStream is = new ByteArrayInputStream(buffer);
-        ObjectMetadata meta = new ObjectMetadata();
-        meta.setContentType("image/" + imageType);
-        meta.setContentLength(buffer.length);
-
-        s3client.putObject(new PutObjectRequest(bucketName, fileName, is, meta).withCannedAcl(CannedAccessControlList.PublicRead));
-    }
-
     private void convertMathAndStoreOnAwsS3(MathProblem mathProblem,Long id, boolean save) {
         String descriptionFileName = "problem" + System.currentTimeMillis() + ".png";
         String resultFileName = "result" + System.currentTimeMillis() + ".png";
@@ -272,8 +233,8 @@ public class AdminPostMappingController {
         BufferedImage imgDescription = formula.drawImage(mathProblem.getDescription());
         BufferedImage imgResult = formula.drawImage(mathProblem.getResult());
 
-        uploadBufferedImageToServer(imgDescription, descriptionFileName, "png", mathProblem.getDescriptionPath());
-        uploadBufferedImageToServer(imgResult, resultFileName, "png", mathProblem.getResultPath());
+        userService.uploadBufferedImageToServer(imgDescription, descriptionFileName,  mathProblem.getDescriptionPath());
+        userService.uploadBufferedImageToServer(imgResult, resultFileName,  mathProblem.getResultPath());
 
         mathProblem.setDatePosted(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()));
         mathProblem.setDescriptionPath("https://matharena.s3.eu-central-1.amazonaws.com/" + descriptionFileName);

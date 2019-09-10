@@ -72,6 +72,7 @@ public class RegisterController {
         } else {
 
             user.setEnabled(true);
+            user.setClientRegistrationId("matharena");
             user.setRoles(Collections.singletonList(roleService.findByName("ROLE_USER")));
             String password = user.getPassword();
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));

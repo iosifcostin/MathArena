@@ -101,6 +101,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
             user.setRoles(userRoles);
             user.setEnabled(true);
             user.setProfilePicturePath("/images/no-image.jpg");
+            user.setClientRegistrationId("matharena");
             userService.save(user);
         }
     }

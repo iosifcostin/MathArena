@@ -24,6 +24,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByFirstNameAndIdNot(String username, Long id);
 
+    User findByClientRegistrationId (String id);
+
     Page<User> findByFirstNameContainingOrderByIdAsc(String username, Pageable pageable);
 
     Page<User> findByEmailContainingOrderByIdAsc(String email, Pageable pageable);
@@ -38,7 +40,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "u.enabled = :#{#user.enabled}," +
             "u.firstName = :#{#user.firstName}, " +
             "u.lastName = :#{#user.lastName}," +
-            "u.googleAuthId = :#{#user.googleAuthId}," +
+            "u.clientAuthId = :#{#user.clientAuthId}," +
             "u.password = :#{#user.password}," +
             "u.roles = :#{#user.roles} WHERE u.id = :#{#user.id}")
     void setProblems(@Param("user") User user);
@@ -63,7 +65,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE u.email = :#{#email}")
     User findByEmail(@Param("email") String email);
 
-    User findByGoogleAuthId(String authId);
+    User findByClientAuthId(String authId);
 
     @Query("SELECT u FROM User u JOIN FETCH u.roles WHERE u.id = (:id)")
     User findByIdEagerly(@Param("id") Long id);

@@ -56,7 +56,7 @@ public class LoginController {
             /* The user is logged in :) */
             return "redirect:/default";
         }
-        session.setAttribute("roles", Collections.singletonList(roleService.findByName("ROLE_USER")));
+
         return "login";
     }
 

@@ -107,11 +107,11 @@ public class WebsiteNavController {
 
 
         if (request.isUserInRole("ROLE_USER")) {
-            User user = new User();
-            if (session.getAttribute("userType") == "normalUser")
+            User user;
+            if (userService.isOauth(authentication))
+                user = userService.findByClientAuthId(authentication.getName());
+            else
                 user = userService.findByEmail(authentication.getName());
-            else if (session.getAttribute("userType") == "googleUser")
-                user = userService.findByGoogleAuthId(authentication.getName());
 
             User finalUser = user;
             mathProblemPage.forEach(m -> m.setProblemSolved(finalUser.getMathProblems().contains(m)));

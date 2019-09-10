@@ -34,8 +34,8 @@
 
                             </form>
                         </div>
-                        <div ><h1 th:text="${user.getFirstName() + ' ' + user.getLastName()}" style="color: white;"></h1>
-
+                        <div ><h1 th:if="${user.getFirstName()}" th:text="${user.getFirstName() + ' ' + user.getLastName()}" style="color: white;"></h1>
+                            <h1 th:if="${user.getName()}" th:text="${user.getName()}" style="color: white;"></h1>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <div th:replace="userFragments/headAndJsScripts :: scripts"></div>
     <script th:inline="javascript">
         /*<![CDATA[*/
@@ -148,7 +148,7 @@
         var welcome = /*[[${welcome}]]*/ 'default';
         var userType = /*[[${session.userType}]]*/ 'default';
 
-        window.onload = function (ev) {
+        window.onload = function () {
 
             if (userType === 'normalUser')
 

@@ -3,11 +3,8 @@ package iosifcostin.MathArena.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 @Entity
@@ -16,6 +13,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    private String name;
 
     private String firstName;
 
@@ -36,7 +35,9 @@ public class User {
     private String  profilePicturePath;
 
     @Column(unique = true)
-    private String googleAuthId;
+    private String clientAuthId;
+
+    private String clientRegistrationId;
 
     private boolean enabled;
 
@@ -112,12 +113,12 @@ public class User {
         this.profilePicturePath = profilePicturePath;
     }
 
-    public String getGoogleAuthId() {
-        return googleAuthId;
+    public String getClientAuthId() {
+        return clientAuthId;
     }
 
-    public void setGoogleAuthId(String googleAuthId) {
-        this.googleAuthId = googleAuthId;
+    public void setClientAuthId(String clientAuthId) {
+        this.clientAuthId = clientAuthId;
     }
 
 
@@ -153,4 +154,19 @@ public class User {
         this.percentDto = percentDto;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getClientRegistrationId() {
+        return clientRegistrationId;
+    }
+
+    public void setClientRegistrationId(String clientRegistrationId) {
+        this.clientRegistrationId = clientRegistrationId;
+    }
 }

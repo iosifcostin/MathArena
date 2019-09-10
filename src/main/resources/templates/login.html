@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="adminFragments/headAndJsScripts :: head">
+    <link rel="stylesheet" th:href="@{/websiteAssets/bootstrap-social.css}">
     <title>Login</title>
 </head>
 
@@ -16,6 +17,11 @@
                <img th:src="@{/images/icon-google.png}" alt="GOOGLE">
                Google
            </a>
+           <a th:href="@{/oauth2/authorization/facebook}" class="btn-facebook m-b-20">
+               <img th:src="@{/images/facebook.jpg}" alt="Facebook" style="width: 40px; height: 40px">
+               Facebook
+           </a>
+
        </div>
         <div class="card-body">
             <form th:action="@{/perform-login}" method="post">
