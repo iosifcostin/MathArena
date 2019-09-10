@@ -31,6 +31,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.Principal;
 import java.util.*;
 
 
@@ -217,9 +218,7 @@ public class UserService {
     }
 
     public boolean isOauth (Authentication authentication){
-        OAuth2AuthorizedClient authorizedClient = authorizedClient((OAuth2AuthenticationToken) authentication);
-
-        return authorizedClient.getClientRegistration().getRegistrationId().equals("google") || authorizedClient.getClientRegistration().getRegistrationId().equals("facebook");
+        return authentication.getName().matches("^[0-9]*$");
     }
 
     public User getUserAttributes(OAuth2AuthenticationToken auth) {

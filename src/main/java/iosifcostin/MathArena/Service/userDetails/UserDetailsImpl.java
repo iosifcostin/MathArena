@@ -14,6 +14,7 @@ import java.util.List;
 
 public class UserDetailsImpl implements UserDetails {
     private User user;
+
     UserDetailsImpl(User user) {
         this.user = user;
     }
@@ -22,8 +23,8 @@ public class UserDetailsImpl implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> authorities = new HashSet<>();
         List<Role> roles = user.getRoles();
-        for( Role role : roles ) {
-            authorities.add( new SimpleGrantedAuthority(role.getName()));
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
         return authorities;
 
@@ -59,5 +60,8 @@ public class UserDetailsImpl implements UserDetails {
         return user.isEnabled();
     }
 
-//    public boolean isOnline (){return  user.isOnline();}
+    public boolean isOauth() {
+
+        return user.getClientRegistrationId().equals("google") || user.getClientRegistrationId().equals("facebook");
+    }
 }

@@ -10,6 +10,7 @@ import iosifcostin.MathArena.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,7 +41,9 @@ public class RestController {
     }
 
     @GetMapping("/checkAnswer")
-    public ResponseEntity<Boolean> checkAnswer(@RequestParam String answer, @RequestParam Long id, Authentication authentication, HttpSession session) {
+    public ResponseEntity<Boolean> checkAnswer(@RequestParam String answer, @RequestParam Long id,
+                                               Authentication authentication,
+                                               HttpSession session) {
 
         MathProblem mathProblem = mathProblemService.findById(id);
         Boolean isValid = mathProblem.getResult().equals(answer);

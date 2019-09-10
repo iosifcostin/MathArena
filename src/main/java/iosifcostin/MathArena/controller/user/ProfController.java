@@ -43,6 +43,7 @@ public class ProfController {
         model.addAttribute("user", user);
         model.addAttribute("profile", true);
         model.addAttribute("picUpload", new PictureDto());
+        session.setAttribute("normalUser", true);
         return "user/profile";
     }
 
@@ -74,6 +75,7 @@ public class ProfController {
         model.addAttribute("profile", true);
         model.addAttribute("picUpload", new PictureDto());
         model.addAttribute("user", user);
+        session.setAttribute("oauthUser", true);
 
         return "user/profile";
     }

@@ -47,11 +47,11 @@
                         </a>
                     </li>
                     <li sec:authorize="hasRole('ROLE_USER')" class="nav-item">
-                        <a th:if="${session.userType == 'normalUser'}" class="nav-link" th:href="@{/user/profile}" th:classappend="${profile} ? active : zxc">
+                        <a th:if="${session.normalUser}" class="nav-link" th:href="@{/user/profile}" th:classappend="${profile} ? active : zxc">
                             <i class="far fa-user"></i>
                             Profil
                         </a>
-                        <a th:if="${session.userType == 'googleUser'}" class="nav-link" th:href="@{/user/oauth/profile}" th:classappend="${profile} ? active : zxc">
+                        <a th:if="${session.oauthUser}" class="nav-link" th:href="@{/user/oauth/profile}" th:classappend="${profile} ? active : zxc">
                             <i class="far fa-user"></i>
                             Profil
                         </a>
